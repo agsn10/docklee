@@ -1,12 +1,21 @@
 package com.docklee.core;
 
+import static com.docklee.core.action.ActionOrchestrator.aNewActionOrchestrator;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.docklee.core.action.ActionOrchestrator;
+
 public class DockleeManager extends AbstractDockleeManager{
+
+    /**
+     *
+     * */
+    private final ActionOrchestrator orchestrator = aNewActionOrchestrator();
 
     public DockleeManager(final String packageToScan) {
         super(packageToScan);
@@ -22,6 +31,7 @@ public class DockleeManager extends AbstractDockleeManager{
     @Override
     public void init() throws ServletException {
         super.init();
+        orchestrator.inicializeActions();
     }
 
     /**
@@ -64,6 +74,7 @@ public class DockleeManager extends AbstractDockleeManager{
      * @throws
      */
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.getWriter().write("Hello World!");
+        String action = orchestrator.getAction(req, resp);
+        orchestrator.executeAction(action);
     }
 }
