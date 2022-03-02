@@ -9,7 +9,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import com.docklee.annotation.ExternalDocumentation;
-import com.docklee.annotation.Parameter;
+import com.docklee.annotation.parameters.Parameter;
 import com.docklee.annotation.extensions.Extension;
 import com.docklee.annotation.parameters.RequestBody;
 import com.docklee.annotation.responses.ApiResponse;

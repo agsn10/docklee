@@ -1,0 +1,22 @@
+.md-form label {
+    	color: #0d579b;
+	}	
+.fa-user:before {
+	   color: #0d579b;
+	}     
+.fa-lock:before {
+    	color: #0d579b;
+	}
+.fa-user:before {
+    color: white;
+}
+.fa-lock:before {
+    color: white;
+}
+
+html, body {
+	  width: 100%;
+	  height: 100%;
+	  padding: 0;
+	  margin: 0;
+	}
