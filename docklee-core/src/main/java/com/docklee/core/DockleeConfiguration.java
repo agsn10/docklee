@@ -9,12 +9,15 @@ import java.util.stream.Stream;
  * */
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 
+import com.docklee.model.pojo.APIDefinition;
+
 public class DockleeConfiguration{
 
     private final String urlMapping = "/docklee/*";
     private String pkg;
     private int loadOnStartup = 1;
     private Set<String> listUrlMappings = new HashSet<>(0);
+    private APIDefinition apiDefinition;
 
     private DockleeConfiguration() {
     }
@@ -25,6 +28,11 @@ public class DockleeConfiguration{
 
     public DockleeConfiguration packageToScan(final String pkg){
         this.pkg = pkg;
+        return this;
+    }
+
+    public DockleeConfiguration apiDefinition(APIDefinition apiDefinition){
+        this.apiDefinition = apiDefinition;
         return this;
     }
 
@@ -48,14 +56,5 @@ public class DockleeConfiguration{
         ServletRegistrationBean servlet = new ServletRegistrationBean(new DockleeManager(this.pkg), listUrlMappings.stream().toArray(String[]::new));
         servlet.setLoadOnStartup(loadOnStartup);
         return servlet;
-    }
-
-
-    public static void main(String[] args) {
-        DockleeConfiguration.create()
-                            .defaultMapping()
-                            .packageToScan("com.dsm.core.web.resource")
-                            .loadOnStartup(1)
-                            .build();
     }
 }
