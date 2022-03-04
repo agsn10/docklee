@@ -74,7 +74,6 @@ public class DockleeManager extends AbstractDockleeManager{
      * @throws
      */
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         String action = orchestrator.getAction(req, resp);
         orchestrator.executeAction(action);
     }

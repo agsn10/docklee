@@ -6,7 +6,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import com.docklee.annotation.operations.Operation;
 import com.docklee.model.exception.MappingException;
-import com.docklee.model.pojo.Parameter;
+import com.docklee.model.pojo.parameters.Parameter;
 import com.docklee.model.pojo.operations.Server;
 import com.docklee.model.pojo.responses.ApiResponse;
 import com.docklee.model.pojo.security.SecurityRequirement;

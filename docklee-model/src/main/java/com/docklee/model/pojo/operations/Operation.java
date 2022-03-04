@@ -2,7 +2,7 @@ package com.docklee.model.pojo.operations;
 
 import java.io.Serializable;
 
-import com.docklee.model.pojo.Parameter;
+import com.docklee.model.pojo.parameters.Parameter;
 import com.docklee.model.pojo.parameters.RequestBody;
 import com.docklee.model.pojo.responses.ApiResponse;
 import com.docklee.model.pojo.security.SecurityRequirement;

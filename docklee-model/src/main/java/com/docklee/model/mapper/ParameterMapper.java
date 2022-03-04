@@ -20,14 +20,14 @@ import com.docklee.model.pojo.media.ExampleObject;
  * @version 1.0.0
  * @since 28-02-2022
  */
-public class ParameterMapper implements Serializable, Mapper<Parameter, com.docklee.model.pojo.Parameter> {
+public class ParameterMapper implements Serializable, Mapper<Parameter, com.docklee.model.pojo.parameters.Parameter> {
 
 	private static final long serialVersionUID = -6381888763588515460L;
 
 	@Override
-	public com.docklee.model.pojo.Parameter map(Parameter input) throws MappingException {
+	public com.docklee.model.pojo.parameters.Parameter map(Parameter input) throws MappingException {
 		
-		com.docklee.model.pojo.Parameter parameter = new com.docklee.model.pojo.Parameter();
+		com.docklee.model.pojo.parameters.Parameter parameter = new com.docklee.model.pojo.parameters.Parameter();
 		
 		parameter.setAllowEmptyValue(input.allowEmptyValue());
 		parameter.setAllowReserved(input.allowReserved());
