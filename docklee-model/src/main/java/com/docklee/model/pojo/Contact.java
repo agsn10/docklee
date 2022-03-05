@@ -48,4 +48,38 @@ public class Contact implements Serializable {
     public void setUrl(final String url) {
         this.url = url;
     }
+
+    static public class Builder {
+
+        private Contact anContact = new Contact();
+
+        private Builder() {
+
+        }
+
+        static public Builder create() {
+            return new Builder();
+        }
+
+        public Builder withEmail(String email) {
+            anContact.setEmail(email);
+            return this;
+        }
+
+        public Builder withName(String name) {
+            anContact.setName(name);
+            return this;
+        }
+
+        public Builder withUrl(String url) {
+            anContact.setUrl(url);
+            return this;
+        }
+
+        public Contact build() {
+            return anContact;
+        }
+    }
 }
+
+
