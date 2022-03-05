@@ -40,4 +40,37 @@ public class License implements Serializable {
     public void setUrl(final String url) {
         this.url = url;
     }
+
+    static public class Builder {
+
+        private License anLicense = new License();
+
+        private Builder(){
+
+        }
+
+        static public Builder create() {
+            return new Builder();
+        }
+
+        public Builder withExtensions(Extension[] extensions) {
+            anLicense.setExtensions(extensions);
+            return this;
+        }
+
+        public Builder withName(String name) {
+            anLicense.setName(name);
+            return this;
+        }
+
+        public Builder withUrl(String url) {
+            anLicense.setUrl(url);
+            return this;
+        }
+
+        public License build() {
+            return anLicense;
+        }
+
+    }
 }
