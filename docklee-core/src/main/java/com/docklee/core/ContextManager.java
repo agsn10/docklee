@@ -114,7 +114,7 @@ public final class ContextManager extends HashMap<String, HashMap<String, Object
 			mapServerInfo.put(ContextInfo.ServerInfo.LOCAL_PORT, request.getLocalPort());
 			mapServerInfo.put(ContextInfo.ServerInfo.CHARACTER_ENCODING, request.getCharacterEncoding());
 			mapServerInfo.put(ContextInfo.ServerInfo.LOCAL_NAME, request.getLocalName());
-			mapServerInfo.put(ContextInfo.ServerInfo.SHEME, request.getScheme());
+			mapServerInfo.put(ContextInfo.ServerInfo.SCHEME, request.getScheme());
 			contextManager.put(ContextInfo.Ctx.SERVER_INFO, mapServerInfo);	
 			contextManager.saveContext(request.getServletContext(), contextManager);
 		}

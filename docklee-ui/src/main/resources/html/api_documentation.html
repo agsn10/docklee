@@ -188,63 +188,98 @@
 		
 	</nav>
 
-	<div id="services" class="px-2" style="margin-top: 70px; background:#dee3e9; height:260px; ">
+	<div id="services" class="px-2" style="margin-top: 70px; height:309px; ">
 
 		<div class="row">
 			<div class="col-md-12">
 				<div class="p-3" style="padding-bottom: 0px !important;"> <!-- bg-light -->
-					<form>
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label class="font-weight-bold">Title</label>
-								<div style="width: 100%"><label >API JSONService</label></div>
-							</div>
-							<div class="form-group col-md-6">
-								<label class="font-weight-bold">Description</label>
-								<div style="width: 100%"><label >This service provides an API to teach monkeys how to eat bananas.</label></div>
-							</div>
-							<div class="form-group col-md-1">
-								<label class="font-weight-bold">Version</label>
-								<div style="width: 100%"><h4><span class="badge" style="background-color:#4D7A97">1.0.0</span></h4></div>
-							</div>
-							<div class="form-group col-md-1">
-								<label class="font-weight-bold" style="margin-left: 10px">OAS</label>
-								<div style="width: 100%"><h4><span class="badge" style="background-color: #F8981D">3.0.1</span></h4></div>
-							</div>
+
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" href="#info" role="tab" data-toggle="tab">Info</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#servers" role="tab" data-toggle="tab">Servers</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#security" role="tab" data-toggle="tab">Security Requirement</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#externalDocumentation" role="tab" data-toggle="tab">External Documentation</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#extension" role="tab" data-toggle="tab">Extension</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#tag" role="tab" data-toggle="tab">Tag</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content" style="padding: .5rem .0rem .0rem;">
+						<div role="tabpanel" class="tab-pane fade in active show" id="info">
+
+							<form>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+										<label class="font-weight-bold">Title</label>
+										<div style="width: 100%"><label >API JSONService</label></div>
+									</div>
+									<div class="form-group col-md-6">
+										<label class="font-weight-bold">Description</label>
+										<div style="width: 100%"><label >This service provides an API to teach monkeys how to eat bananas.</label></div>
+									</div>
+									<div class="form-group col-md-1">
+										<label class="font-weight-bold">Version</label>
+										<div style="width: 100%"><h4><span class="badge" style="background-color:#4D7A97">1.0.0</span></h4></div>
+									</div>
+									<div class="form-group col-md-1">
+										<label class="font-weight-bold" style="margin-left: 10px">OAS</label>
+										<div style="width: 100%"><h4><span class="badge" style="background-color: #F8981D">3.0.1</span></h4></div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+										<label class="font-weight-bold">Contact Email</label>
+										<div style="width: 100%"><label >agsn10@hotmail.com</label></div>
+									</div>
+									<div class="form-group col-md-4">
+										<label class="font-weight-bold">Contact Name</label>
+										<div style="width: 100%"><label >Antonio Neto</label></div>
+									</div>
+									<div class="form-group col-md-4">
+										<label class="font-weight-bold">Contact URL</label>
+										<div style="width: 100%"><a style="color:#007bff">http://www.docklee.com/contact</a></div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+										<label class="font-weight-bold">License Name</label>
+										<div style="width: 100%"><label >Docklee License</label></div>
+									</div>
+									<div class="form-group col-md-4">
+										<label class="font-weight-bold">License URL</label>
+										<div style="width: 100%"><a style="color:#007bff">http://www.docklee.com/license</a></div>
+									</div>
+									<div class="form-group col-md-4">
+										<label class="font-weight-bold">Terms Of Service</label>
+										<div style="width: 100%"><a style="color:#007bff">http://www.docklee.com/term</a></div>
+									</div>
+								</div>
+							</form>
+
 						</div>
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label class="font-weight-bold">Contact Email</label>
-								<div style="width: 100%"><label >agsn10@hotmail.com</label></div>
-							</div>
-							<div class="form-group col-md-4">
-								<label class="font-weight-bold">Contact Name</label>
-								<div style="width: 100%"><label >Antonio Neto</label></div>
-							</div>
-							<div class="form-group col-md-4">
-								<label class="font-weight-bold">Contact URL</label>
-								<div style="width: 100%"><label >http://www.docklee.com/contact</label></div>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label class="font-weight-bold">License Name</label>
-								<div style="width: 100%"><label >Docklee License</label></div>
-							</div>
-							<div class="form-group col-md-4">
-								<label class="font-weight-bold">License URL</label>
-								<div style="width: 100%"><label >http://www.docklee.com/license</label></div>
-							</div>
-							<div class="form-group col-md-4">
-								<label class="font-weight-bold">Terms Of Service</label>
-								<div style="width: 100%"><label >http://www.docklee.com/term</label></div>
-							</div>
-						</div>
-					</form>
+						<div role="tabpanel" class="tab-pane fade" id="servers">Servers</div>
+						<div role="tabpanel" class="tab-pane fade" id="security">Security Requirement</div>
+						<div role="tabpanel" class="tab-pane fade" id="externalDocumentation">External Documentation</div>
+						<div role="tabpanel" class="tab-pane fade" id="extension">Extension</div>
+						<div role="tabpanel" class="tab-pane fade" id="tag">Tag</div>
+					</div>
+
 				</div>
 			</div>
-			<div class="col-md-12" style="padding-right: 0px; padding-left: 0px;">
-				<nav class="navbar navbar-light" style="box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 2px 5px 0 rgb(0 0 0 / 12%);">
+			<div class="col-md-12" style="">
+				<nav class="navbar navbar-light" style="box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 2px 5px 0 rgb(0 0 0 / 12%); background:#dee3e9; ">
 					<div class="container-fluid">
 						<a class="navbar-brand"></a>
 						<form class="d-flex input-group w-auto">
@@ -376,7 +411,7 @@
 
 	</div>
 		
-	<div id="service_detail" class="px-2" style="margin-top: 70px; display: none;">
+	<div id="service_detail" class="px-2" style="margin-top: 70px; display: none;>
 	
 		<div class="container-fluid mt-0 pt-1">
 						

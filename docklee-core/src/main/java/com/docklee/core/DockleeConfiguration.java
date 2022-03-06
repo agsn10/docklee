@@ -53,7 +53,7 @@ public class DockleeConfiguration{
 
     public ServletRegistrationBean build(){
         if(listUrlMappings.isEmpty()) listUrlMappings.add(urlMapping);
-        ServletRegistrationBean servlet = new ServletRegistrationBean(new DockleeManager(this.pkg), listUrlMappings.stream().toArray(String[]::new));
+        ServletRegistrationBean servlet = new ServletRegistrationBean(new DockleeManager(this.pkg, this.apiDefinition), listUrlMappings.stream().toArray(String[]::new));
         servlet.setLoadOnStartup(loadOnStartup);
         return servlet;
     }

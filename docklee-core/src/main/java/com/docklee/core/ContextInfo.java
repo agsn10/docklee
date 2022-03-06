@@ -14,7 +14,10 @@ import java.io.Serializable;
  * @see {@link ContextManager}
  */
 public final class ContextInfo implements Serializable{
-	
+
+	/** Used to obtain the ... */
+	public static final String DOCKLEE_NAME_LOGO = "Docklee";
+
 	private ContextInfo() {}
 	
 	/** Used to obtain the ... */
@@ -104,7 +107,7 @@ public final class ContextInfo implements Serializable{
 		/** Used to obtain the following server context information. For example:  */
 		public static final String PATH_INFO = "pathInfo";
 		/** Used to obtain the following server context information. For example:  */
-		public static final String SHEME = "scheme";
+		public static final String SCHEME = "scheme";
 		/** Used to obtain the following server context information. For example:  */
 		public static final String PROTOCOL = "protocol";
 		/** Used to obtain the following server context information. For example:  */
