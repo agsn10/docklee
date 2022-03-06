@@ -5,11 +5,14 @@ import static com.docklee.core.action.ActionOrchestrator.aNewActionOrchestrator;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.docklee.core.action.ActionOrchestrator;
+import com.docklee.model.pojo.APIDefinition;
 
+@WebListener
 public class DockleeManager extends AbstractDockleeManager{
 
     /**
@@ -17,8 +20,12 @@ public class DockleeManager extends AbstractDockleeManager{
      * */
     private final ActionOrchestrator orchestrator = aNewActionOrchestrator();
 
-    public DockleeManager(final String packageToScan) {
-        super(packageToScan);
+    public DockleeManager() {
+        super(null, null);
+    }
+
+    public DockleeManager(final String packageToScan, final APIDefinition apiDefinition) {
+        super(packageToScan, apiDefinition);
     }
 
     /**
@@ -71,7 +78,7 @@ public class DockleeManager extends AbstractDockleeManager{
      *
      * @param req Interface HttpServletRequest from container.
      * @param resp Interface HttpServletResponse from container.
-     * @throws
+     * @throws IOException
      */
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String action = orchestrator.getAction(req, resp);
