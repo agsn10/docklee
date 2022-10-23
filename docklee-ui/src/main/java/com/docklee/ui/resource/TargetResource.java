@@ -51,6 +51,14 @@ public final class TargetResource {
 		public static final String POPPER_MIN_JS = "${popper_min_js}";
 		public static final String BOOTSTRAP_MIN_CSS = "${bootstrap_min_css}";
 		public static final String MDB_MIN_CSS = "${mdb_min_css}";
+
+		public static final String API_INFO = "${api.info}";
+		public static final String API_SERVERS = "${api.servers}";
+		public static final String API_SECURITY_REQUIREMENT = "${api.security.requirement}";
+		public static final String API_EXTERNAL_DOCUMENTATION = "${api.external.documentation}";
+		public static final String API_EXTENSION = "${api.extension}";
+		public static final String API_TAG = "${api.tag}";
+		/*
 		public static final String INFO_TITLE = "${info.title}";
 		public static final String INFO_DESCRIPTION = "${info.description}";
 		public static final String INFO_VERSION = "${info.version}";
@@ -60,5 +68,6 @@ public final class TargetResource {
 		public static final String INFO_LICENSE_NAME = "${info.license.name}";
 		public static final String INFO_LICENSE_URL = "${info.license.url}";
 		public static final String INFO_LICENSE_TERMS = "${info.license.terms}";
+		*/
 	}
 }

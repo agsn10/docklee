@@ -2,9 +2,9 @@ package com.docklee.ui.resource.component;
 
 import com.docklee.model.pojo.APIDefinition;
 
-public class InfoComponent extends Component{
+public class ServersComponent extends Component{
 
-    public InfoComponent(final APIDefinition apiDefinition) {
+    public ServersComponent(final APIDefinition apiDefinition) {
         super(apiDefinition);
     }
 

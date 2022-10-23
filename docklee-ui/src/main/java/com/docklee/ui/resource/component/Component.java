@@ -1,6 +1,18 @@
 package com.docklee.ui.resource.component;
 
-public interface Component {
+import com.docklee.model.pojo.APIDefinition;
 
-    String create();
+public abstract class Component {
+
+    private APIDefinition apiDefinition;
+
+    public Component(final APIDefinition apiDefinition) {
+        this.apiDefinition = apiDefinition;
+    }
+
+    public abstract String create();
+
+    public APIDefinition getApiDefinition() {
+        return apiDefinition;
+    }
 }
