@@ -1,6 +1,8 @@
 package com.docklee.ui.resource.component;
 
 import com.docklee.model.pojo.APIDefinition;
+import com.docklee.model.pojo.ExternalDocumentation;
+import com.docklee.model.pojo.security.SecurityRequirement;
 
 public class ExternalDocumentationComponent extends Component{
 
@@ -13,6 +15,22 @@ public class ExternalDocumentationComponent extends Component{
      */
     @Override
     public String create() {
-        return null;
+        getComponent().append("<div role='tabpanel' class='tab-pane fade' id='externalDocumentation'>");
+        getComponent().append("     <div class='col-md-12' style='margin-top: 2px; padding-left: 0px; padding-right: 0px; height: 240px; overflow-y: scroll; margin-bottom: 5px;'>");
+        getComponent().append("         <table class='table table-sm'>");
+        getComponent().append("             <thead style='background-color: #09c; color: white;'>");
+        getComponent().append("                 <tr>");
+        getComponent().append("                     <th scope='col'><b>#</b></th>");
+        getComponent().append("                     <th scope='col'><b>Description</b></th>");
+        getComponent().append("                     <th scope='col'><b>URL</b></th>");
+        getComponent().append("                 </tr>");
+        getComponent().append("             </thead>");
+        getComponent().append("             <tbody>");
+
+        getComponent().append("             </tbody>");
+        getComponent().append("         </table>");
+        getComponent().append("     </div>");
+        getComponent().append("</div>");
+        return getComponent().toString();
     }
 }

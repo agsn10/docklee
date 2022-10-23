@@ -56,9 +56,9 @@ public class ApiDocumentationHandler implements ResourceHandler{
 
 				put(TargetResource.ApiDocumentation.API_INFO, new InfoComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_SERVERS, new ServersComponent(apiDefinition).create());
-				/*  put(TargetResource.ApiDocumentation.API_SECURITY_REQUIREMENT, new SecurityRequirementComponent(apiDefinition).create());
+				put(TargetResource.ApiDocumentation.API_SECURITY_REQUIREMENT, new SecurityRequirementComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_EXTERNAL_DOCUMENTATION, new ExternalDocumentationComponent(apiDefinition).create());
-				put(TargetResource.ApiDocumentation.API_EXTENSION, new ExtensionComponent(apiDefinition).create());
+				/*put(TargetResource.ApiDocumentation.API_EXTENSION, new ExtensionComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_TAG, new TagComponent(apiDefinition).create()); */
 
 			}};
