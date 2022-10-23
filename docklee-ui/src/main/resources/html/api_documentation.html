@@ -360,58 +360,7 @@
 
 					<!-- Tab panes -->
 					<div class="tab-content" style="padding: .5rem .0rem .0rem;">
-						<div role="tabpanel" class="tab-pane fade in active show" id="info">
-
-							<form style="margin-left: 7px;">
-								<div class="form-row">
-									<div class="form-group col-md-4">
-										<label class="font-weight-bold">Title</label>
-										<div style="width: 100%"><label >${info.title}</label></div>
-									</div>
-									<div class="form-group col-md-6">
-										<label class="font-weight-bold">Description</label>
-										<div style="width: 100%"><label>${info.description}</label></div>
-									</div>
-									<div class="form-group col-md-1">
-										<label class="font-weight-bold">Version</label>
-										<div style="width: 100%"><h4><span class="badge" style="background-color:#4D7A97">${info.version}</span></h4></div>
-									</div>
-									<div class="form-group col-md-1">
-										<label class="font-weight-bold" style="margin-left: 10px">OAS</label>
-										<div style="width: 100%"><h4><span class="badge" style="background-color: #F8981D">3.0.1</span></h4></div>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-4">
-										<label class="font-weight-bold">Contact Email</label>
-										<div style="width: 100%"><label>${info.contact.email}</label></div>
-									</div>
-									<div class="form-group col-md-4">
-										<label class="font-weight-bold">Contact Name</label>
-										<div style="width: 100%"><label>${info.contact.name}</label></div>
-									</div>
-									<div class="form-group col-md-4">
-										<label class="font-weight-bold">Contact URL</label>
-										<div style="width: 100%"><a style="color:#007bff">${info.contact.url}</a></div>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-4">
-										<label class="font-weight-bold">License Name</label>
-										<div style="width: 100%"><label>${info.license.name}</label></div>
-									</div>
-									<div class="form-group col-md-4">
-										<label class="font-weight-bold">License URL</label>
-										<div style="width: 100%"><a style="color:#007bff">${info.license.url}</a></div>
-									</div>
-									<div class="form-group col-md-4">
-										<label class="font-weight-bold">Terms Of Service</label>
-										<div style="width: 100%"><a style="color:#007bff">${info.license.terms}</a></div>
-									</div>
-								</div>
-							</form>
-
-						</div>
+						${api.info}
 						<div role="tabpanel" class="tab-pane fade" id="servers">
 							<div class="col-md-12" style="margin-top: 2px; padding-left: 0px; padding-right: 0px; height: 260px; overflow-y: scroll; margin-bottom: 5px;">
 								<table class="table table-sm">

@@ -55,24 +55,12 @@ public class ApiDocumentationHandler implements ResourceHandler{
 				put(TargetResource.ApiDocumentation.MDB_MIN_CSS, Resources.getInstance().getResource(CssResource.MDB_MIN));
 
 				put(TargetResource.ApiDocumentation.API_INFO, new InfoComponent(apiDefinition).create());
-				put(TargetResource.ApiDocumentation.API_SERVERS, new ServersComponent(apiDefinition).create());
+				/* put(TargetResource.ApiDocumentation.API_SERVERS, new ServersComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_SECURITY_REQUIREMENT, new SecurityRequirementComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_EXTERNAL_DOCUMENTATION, new ExternalDocumentationComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_EXTENSION, new ExtensionComponent(apiDefinition).create());
-				put(TargetResource.ApiDocumentation.API_TAG, new TagComponent(apiDefinition).create());
-			/*
-				put(TargetResource.ApiDocumentation.INFO_TITLE, apiDefinition.getInfo().getTitle());
-				put(TargetResource.ApiDocumentation.INFO_DESCRIPTION, apiDefinition.getInfo().getDescription());
-				put(TargetResource.ApiDocumentation.INFO_VERSION, apiDefinition.getInfo().getVersion());
+				put(TargetResource.ApiDocumentation.API_TAG, new TagComponent(apiDefinition).create()); */
 
-				put(TargetResource.ApiDocumentation.INFO_CONTACT_EMAIL, apiDefinition.getInfo().getContact().getEmail());
-				put(TargetResource.ApiDocumentation.INFO_CONTACT_NAME, apiDefinition.getInfo().getContact().getName());
-				put(TargetResource.ApiDocumentation.INFO_CONTACT_URL, apiDefinition.getInfo().getContact().getUrl());
-
-				put(TargetResource.ApiDocumentation.INFO_LICENSE_NAME, apiDefinition.getInfo().getLicense().getName());
-				put(TargetResource.ApiDocumentation.INFO_LICENSE_URL, apiDefinition.getInfo().getLicense().getUrl());
-				put(TargetResource.ApiDocumentation.INFO_LICENSE_TERMS, apiDefinition.getInfo().getContact().getUrl());
-			*/
 			}};
 
 			for(Map.Entry<String, String> res : targets.entrySet()) 

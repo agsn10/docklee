@@ -12,7 +12,7 @@ public abstract class Component {
 
     public abstract String create();
 
-    public APIDefinition getApiDefinition() {
+    protected APIDefinition getApiDefinition() {
         return apiDefinition;
     }
 }
