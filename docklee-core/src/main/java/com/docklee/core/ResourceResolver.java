@@ -1,9 +1,13 @@
 package com.docklee.core;
 
-import java.util.HashSet;
+import java.io.IOException;
+import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-import com.docklee.core.exception.LoadResourceException;
+import javax.servlet.http.HttpServletRequest;
+
+import com.google.common.reflect.ClassPath;
 
 /**
  * <p><b>Docklee</b> - Api Documentation</p>
@@ -17,6 +21,8 @@ import com.docklee.core.exception.LoadResourceException;
  */
 public final class ResourceResolver {
 
+	private boolean isChecked = false;
+
 	/**
 	 * Constructor
 	 * */
@@ -26,25 +32,39 @@ public final class ResourceResolver {
 		static final ResourceResolver INSTANCE = new ResourceResolver();
 	}
 
-	/**
-	 * 
-	 * */
 	public static ResourceResolver getInstance() {
 		return LazyHolder.INSTANCE;
 	}
 
-	/**
-	 * 
-	 * @param resources
-	 * @return Set<Class<?>>
-	 * */
-	public Set<Class<?>> loadResources(final String resources) throws LoadResourceException {
-		Set<Class<?>> set = new HashSet<>();
+	public void checkResources(DockleeManager dockleeManager, HttpServletRequest req){
+        //TODO Implementar mensagem na exception
 		try {
-			set.add(Class.forName(resources.trim()));
-		} catch (ClassNotFoundException e) {
-			throw new LoadResourceException(e);
+			ContextManager contextManager = ContextManager.getInstance().loadContext(req.getServletContext());
+			if (Objects.isNull(dockleeManager.getPackageToScan()) && Objects.isNull(dockleeManager.getApiDefinition()))
+				throw new IllegalArgumentException("");
+
+			if(!isChecked) {
+				Set<Class<?>> set = loadResources(dockleeManager.getPackageToScan());
+				if (!set.isEmpty())
+					set.stream().forEach(clazz -> contextManager.getContext(ContextInfo.Ctx.RESOURCE_INFO).put(clazz.getName(), clazz));
+
+				contextManager.getContext(ContextInfo.Ctx.GLOBAL_DATA).put(ContextInfo.GlobalData.API_DEFINITION, dockleeManager.getApiDefinition());
+				contextManager.saveContext(req.getServletContext(), contextManager);
+				isChecked = true;
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+			System.exit(0);
 		}
-		return set;
+	}
+
+	private Set<Class<?>> loadResources(final String packageName) throws IOException {
+		return ClassPath.from(ClassLoader.getSystemClassLoader())
+			.getAllClasses()
+			.stream()
+			.filter(clazz -> clazz.getPackageName()
+				.equalsIgnoreCase(packageName))
+			.map(clazz -> clazz.load())
+			.collect(Collectors.toSet());
 	}
 }

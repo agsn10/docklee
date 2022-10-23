@@ -16,6 +16,12 @@ import com.docklee.ui.resource.exception.HandlerException;
  */
 public interface ResourceHandler {
 
+	interface ConstantResources{
+		public final String DOCKLEE_CONTEXT = "docklee_context";
+		public final String CTX_GLOBAL_DATA = "ctx.global.data";
+		public final String API_DEFINITION = "api.definition";
+	}
+
 	/**
 	 * <p>
 	 * The method <code>handle</code> ...

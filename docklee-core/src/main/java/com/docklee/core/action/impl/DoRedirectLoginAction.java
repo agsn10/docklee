@@ -38,14 +38,11 @@ public class DoRedirectLoginAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)throws ActionException {
 		try {
-			ContextManager contextManager = ContextManager.getInstance().loadContext(request.getServletContext());
-			Map<String, String> infoMap = new HashMap<String, String>(0){{
-
-			}};
 			response.getWriter().write(LayoutBuilder.create()
-				                                    .setInfoMap(infoMap)
+				                                    .setInfoMap(new HashMap<String, String>(0){{ }})
 				                                    .setResourceBase(HtmlResource.API_DOCUMENTATION)
-				                                    .setResourceHandler(new ApiDocumentationHandler(request.getServletContext())).build()
+				                                    .setResourceHandler(new ApiDocumentationHandler(request.getServletContext()))
+					                                .build()
 			                          );
 		} catch (IOException | ResourceException e) {
 			throw new ActionException(e);

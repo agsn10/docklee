@@ -1,39 +1,31 @@
 package com.docklee.core;
 
-import java.io.Serializable;
+import java.lang.management.ManagementFactory;
+import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
+import javax.management.MBeanServer;
+import javax.management.ObjectName;
+import javax.management.Query;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.annotation.WebListener;
 
 import com.docklee.core.exception.InitializerException;
 import com.docklee.core.init.ContextInitializer;
 import com.docklee.core.init.ContextParameterInitializer;
 import com.docklee.core.init.LogoInitializer;
-import com.docklee.core.init.ResourcesInitializer;
-import com.docklee.model.pojo.APIDefinition;
 
 /**
- * <p><b>Docklee</b> - Api Documentation</p>
- * <p>
- * The class <code>AbstractDockleeManager</code> ....
- * </p>
  *
- * @author Antonio Neto [<()>] - Initial implementation.
- * @version 1.0.0
- * @since 05-02-2022
- */
-public abstract class AbstractDockleeManager extends HttpServlet implements Serializable, ServletContextListener {
+ * @since 08-03-2022
+ * */
+@WebListener
+public class DockleeListener implements ServletContextListener {
 
     private final ContextManager contextManager = ContextManager.getInstance();
-
-    protected String packageToScan;
-    protected APIDefinition apiDefinition;
-
-    public AbstractDockleeManager(final String packageToScan, final APIDefinition apiDefinition) {
-        this.packageToScan = packageToScan;
-        this.apiDefinition = apiDefinition;
-    }
 
     /**
      * <p>
@@ -45,11 +37,9 @@ public abstract class AbstractDockleeManager extends HttpServlet implements Seri
     @Override
     public void contextInitialized(final ServletContextEvent sce) {
         ServletContextListener.super.contextInitialized(sce);
-        contextManager.loadContext(sce.getServletContext());
         try {
             ContextInitializer.newInstance()
                 .addInitializer(new ContextParameterInitializer(contextManager, sce.getServletContext()))
-                //.addInitializer(new ResourcesInitializer(sce.getServletContext(), contextManager, this.packageToScan))
                 .addInitializer(new LogoInitializer(contextManager))
                 .init();
         } catch (InitializerException e) {

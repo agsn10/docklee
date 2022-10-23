@@ -13,12 +13,12 @@
 	<name>docklee-multi-module</name>
 	<url>https://www.docklee.com</url>
 
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<java-version>1.8</java-version>
+		<juneau-dto>7.2.2</juneau-dto>
 	</properties>
 
 	<modules>
