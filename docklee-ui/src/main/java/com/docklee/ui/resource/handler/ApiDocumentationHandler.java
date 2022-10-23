@@ -31,7 +31,7 @@ import com.docklee.ui.resource.exception.ResourceException;
  */
 public class ApiDocumentationHandler implements ResourceHandler{
 
-	private ServletContext servletContext;
+	private final ServletContext servletContext;
 	
 	public ApiDocumentationHandler(ServletContext servletContext) {
 		super();
