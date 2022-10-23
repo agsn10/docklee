@@ -19,10 +19,7 @@ public final class ContextInfo implements Serializable{
 	public static final String DOCKLEE_NAME_LOGO = "Docklee";
 
 	private ContextInfo() {}
-	
-	/** Used to obtain the ... */
-	public static final String DOCKLEE_RESOURCES = "docklee.resources";
-	
+
 	public final class Ctx{
 			
 			private Ctx() {}
@@ -50,31 +47,14 @@ public final class ContextInfo implements Serializable{
 
 		/** Used to obtain the ... */
 		public static final String BASE_URL = "base.url";
+		 /** Used to obtain the ... */
+		 public static final String API_DEFINITION = "api.definition";
 		/** Used to obtain the ... */
 		public static final String LOGIN_USERNAME = "com.docklee.login.username";
 		/** Used to obtain the ... */
 		public static final String LOGIN_PASSWORD = "com.docklee.login.password";
 	}
-	
-	 /**
-	   * <p>
-	   * The interface <code>Action</code> represents the actions performed through the console.
-	   * </p>
-	   * 
-	   * @author Antonio Neto [<()>] - Initial implementation.
-	   * @version 1.0.0
-	   * @since 18-11-2020
-	   */
-	public final class Action{
-		
-		private Action() {}
-		
-		/** Used to obtain the following server context information. For example:  */
-		public static final String LOGIN = "login";
-		public static final String LOGOUT = "logout";
-		 
-	}
-	
+
 	 /**
 	   * <p>
 	   * The interface <code>ServerInfo</code> represents information related to the server context.

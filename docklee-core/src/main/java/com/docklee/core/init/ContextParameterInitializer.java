@@ -7,6 +7,8 @@ import java.util.Optional;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
+import org.springframework.boot.autoconfigure.web.ServerProperties;
+
 import com.docklee.core.ContextInfo;
 import com.docklee.core.ContextManager;
 import com.docklee.core.DockleeManager;
@@ -53,6 +55,8 @@ public class ContextParameterInitializer implements ContextInitializer.Initializ
 					String contextPath = servletContext.getContextPath();
 					String resourcePath = Iterables.get(servletContext.getServletRegistrations().get(optional.get()).getMappings(),0).replace("/*", "");
 					//String port = contextManager.getContext(ContextInfo.Ctx.SERVER_INFO).get(ContextInfo.ServerInfo.SERVER_PORT).toString();
+
+					ServerProperties serverProperties;
 					String baseUrl = String.format(scheme.concat("%s:%s%s%s"), host, "{port}", contextPath, resourcePath);
 					contextManager.getContext(ContextInfo.Ctx.GLOBAL_DATA).put(ContextInfo.GlobalData.BASE_URL, baseUrl);
 					contextManager.saveContext(servletContext, contextManager);

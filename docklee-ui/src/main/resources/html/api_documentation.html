@@ -23,20 +23,6 @@
    
   <style>
 
-    .map-container{
-		overflow:hidden;
-		padding-bottom:56.25%;
-		position:relative;
-		height:0;
-	}
-	.map-container iframe{
-		left:0;
-		top:0;
-		height:100%;
-		width:100%;
-		position:absolute;
-	}
-
     .box{
     	height: 280px;
         -webkit-box-shadow: 0 0px 0px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
@@ -50,13 +36,170 @@
 	   border-color: #4D7A97 !important;
 	}
 
+	.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    	color: #fff;
+    	background-color: rgb(0, 153, 204);
+	}
+
+
+@media (min-width: 768px){
+
+  .affix-content .container {
+	width: 700px;
+  }
+
+  .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .sidebar-nav{
+        position:fixed;
+        width:100%;
+  }
+  .affix-sidebar{
+    padding-right:0;
+    font-size:small;
+    padding-left: 0;
+   /* background-color: #dee3e9; */
+  }
+  .affix-row, .affix-container, .affix-content{
+    height: 100%;
+    margin-right: 0;
+  }
+  .affix-content{
+    background-color:white;
+  }
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar{
+    border-radius:0;
+    margin-bottom:0;
+    border:0;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media (min-width: 769px){
+  .affix-content .container {
+    width: 600px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 992px){
+  .affix-content .container {
+  width: 900px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1220px){
+  .affix-row{
+   /* overflow: hidden; */
+  }
+
+  .affix-content{
+    overflow: auto;
+  }
+
+  .affix-content .container {
+    width: 1000px;
+  }
+
+  .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .affix-content{
+    padding-right: 30px;
+    padding-left: 90px;
+    padding-top: 50px;
+  }
+  .affix-title{
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom:10px;
+  }
+  .navbar-nav {
+    margin: 0;
+  }
+  .navbar-collapse{
+    padding: 0;
+  }
+  .sidebar-nav .navbar li a:hover {
+    background-color: #dee3e9;
+    color: white;
+  }
+  .sidebar-nav .navbar li a > .caret {
+    margin-top: 8px;
+  }
+}
+
+#codeEditor, #lineCounter {
+    font-family: lucida console, courier new, courier, monospace;
+    margin: 0;
+    padding: 10px 0;
+    height: 75vh;
+    border-radius: 0;
+    resize: none;
+    font-size: 16px;
+    line-height: 1.2;
+    outline: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#lineCounter:focus-visible, #codeEditor:focus-visible {
+    outline:none;
+}
+
+#lineCounter {
+      display: flex;
+      border-color: transparent;
+      overflow-y: hidden;
+      text-align: right;
+      box-shadow: none;
+      color: #707070;
+      background-color: #d8d8d8;
+      position: absolute;
+      width: 2rem;
+      /* Determine appearance of line counter */
+      background-color:#3E3D32;
+      border-color:#3E3D32;
+      color:#928869;
+}
+
+#codeEditor {
+      padding-left: calc(3.5rem + 5px);
+      width:100%;
+      /* Determine appearance of code editor */
+      background-color:#272822;
+      border-color:#272822;
+      color:#ffffff;
+}
+
   </style>
 
 </head>
 
 <body>
 	
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="padding-left: 10px; margin-top: 0px; padding-top: 0px; background-color: #09c!important;">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="padding-left: 10px; margin-top: 0px; padding-top: 0px; background-color: rgb(0, 153, 204);">
 		<div class="container" style="max-width: 100%; padding-right: 0px; padding-left: 10px !important; margin-right: auto;">
 
 			<div>				
@@ -188,11 +331,11 @@
 		
 	</nav>
 
-	<div id="services" class="px-2" style="margin-top: 70px; height:309px; ">
+	<div id="services" class="px-2" style="margin-top: 70px; height:309px; display: block;">
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="p-3" style="padding-bottom: 0px !important;"> <!-- bg-light -->
+				<div class="p-2" style="padding-bottom: 0px !important;"> <!-- bg-light -->
 
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="nav-item">
@@ -219,19 +362,19 @@
 					<div class="tab-content" style="padding: .5rem .0rem .0rem;">
 						<div role="tabpanel" class="tab-pane fade in active show" id="info">
 
-							<form>
+							<form style="margin-left: 7px;">
 								<div class="form-row">
 									<div class="form-group col-md-4">
 										<label class="font-weight-bold">Title</label>
-										<div style="width: 100%"><label >API JSONService</label></div>
+										<div style="width: 100%"><label >${info.title}</label></div>
 									</div>
 									<div class="form-group col-md-6">
 										<label class="font-weight-bold">Description</label>
-										<div style="width: 100%"><label >This service provides an API to teach monkeys how to eat bananas.</label></div>
+										<div style="width: 100%"><label>${info.description}</label></div>
 									</div>
 									<div class="form-group col-md-1">
 										<label class="font-weight-bold">Version</label>
-										<div style="width: 100%"><h4><span class="badge" style="background-color:#4D7A97">1.0.0</span></h4></div>
+										<div style="width: 100%"><h4><span class="badge" style="background-color:#4D7A97">${info.version}</span></h4></div>
 									</div>
 									<div class="form-group col-md-1">
 										<label class="font-weight-bold" style="margin-left: 10px">OAS</label>
@@ -241,35 +384,94 @@
 								<div class="form-row">
 									<div class="form-group col-md-4">
 										<label class="font-weight-bold">Contact Email</label>
-										<div style="width: 100%"><label >agsn10@hotmail.com</label></div>
+										<div style="width: 100%"><label>${info.contact.email}</label></div>
 									</div>
 									<div class="form-group col-md-4">
 										<label class="font-weight-bold">Contact Name</label>
-										<div style="width: 100%"><label >Antonio Neto</label></div>
+										<div style="width: 100%"><label>${info.contact.name}</label></div>
 									</div>
 									<div class="form-group col-md-4">
 										<label class="font-weight-bold">Contact URL</label>
-										<div style="width: 100%"><a style="color:#007bff">http://www.docklee.com/contact</a></div>
+										<div style="width: 100%"><a style="color:#007bff">${info.contact.url}</a></div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 										<label class="font-weight-bold">License Name</label>
-										<div style="width: 100%"><label >Docklee License</label></div>
+										<div style="width: 100%"><label>${info.license.name}</label></div>
 									</div>
 									<div class="form-group col-md-4">
 										<label class="font-weight-bold">License URL</label>
-										<div style="width: 100%"><a style="color:#007bff">http://www.docklee.com/license</a></div>
+										<div style="width: 100%"><a style="color:#007bff">${info.license.url}</a></div>
 									</div>
 									<div class="form-group col-md-4">
 										<label class="font-weight-bold">Terms Of Service</label>
-										<div style="width: 100%"><a style="color:#007bff">http://www.docklee.com/term</a></div>
+										<div style="width: 100%"><a style="color:#007bff">${info.license.terms}</a></div>
 									</div>
 								</div>
 							</form>
 
 						</div>
-						<div role="tabpanel" class="tab-pane fade" id="servers">Servers</div>
+						<div role="tabpanel" class="tab-pane fade" id="servers">
+							<div class="col-md-12" style="margin-top: 2px; padding-left: 0px; padding-right: 0px; height: 260px; overflow-y: scroll; margin-bottom: 5px;">
+								<table class="table table-sm">
+									<thead style="background-color: #09c; color: white;">
+									<tr>
+										<th scope="col"><b>#</b></th>
+										<th scope="col"><b>Description</b></th>
+										<th scope="col"><b>Url</b></th>
+										<th scope="col" style="text-align: center; width: 210px"><b>Extensions</b></th>
+										<th scope="col" style="text-align: center; width: 210px"><b>Server Variable</b></th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td scope="row" style="vertical-align: middle">1</td>
+										<td style="vertical-align: middle">Description of the server</td>
+										<td style="vertical-align: middle">http://www.docklee.com.br</td>
+										<td style="text-align: center; width: 210px;">
+											<button type="button" class="btn btn-sm btn-info waves-effect waves-light" onclick="show('multiCollapseExample4');"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
+										</td>
+										<td style="text-align: center; width: 210px;">
+											<button type="button" class="btn btn-sm btn-info waves-effect waves-light" onclick="show('multiCollapseExample4');"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
+										</td>
+									</tr>
+									<tr id="multiCollapseExample4" style="display: none;">
+										<td colspan="5">
+											<div class="card card-body">
+												<table class="table table-sm">
+													<thead>
+													<tr>
+														<th><strong>#</strong></th>
+														<th><strong>Name</strong></th>
+														<th><strong>Value</strong></th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr>
+														<td>1</td>
+														<td>Mark</td>
+														<td>Otto</td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td>Jacob</td>
+														<td>Thornton</td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td>Larry the Bird</td>
+														<td>@twitter</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 						<div role="tabpanel" class="tab-pane fade" id="security">Security Requirement</div>
 						<div role="tabpanel" class="tab-pane fade" id="externalDocumentation">External Documentation</div>
 						<div role="tabpanel" class="tab-pane fade" id="extension">Extension</div>
@@ -281,13 +483,13 @@
 			<div class="col-md-12" style="">
 				<nav class="navbar navbar-light" style="box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 2px 5px 0 rgb(0 0 0 / 12%); background:#dee3e9; ">
 					<div class="container-fluid">
-						<a class="navbar-brand"></a>
+						<label class="navbar-brand" style="font-size: 25px; padding-bottom: 0rem; ">Resources</label>
 						<form class="d-flex input-group w-auto">
 							<input
 									type="search"
 									class="form-control rounded"
-									placeholder="Search services"
-									aria-label="Search services"
+									placeholder="Search resources"
+									aria-label="Search resources"
 									aria-describedby="search-addon"
 							/>
 							<span class="input-group-text border-0" id="search-addon">
@@ -312,7 +514,7 @@
 							<h3 class="card-title">Customer Resource</h3>
 							<p><h4><span class="badge btn-info">New</span></h4></p>
 							<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							<a href="#" class="btn" style="background-color: #4D7A97 !important;">Detail</a>
+							<a href="#" class="btn" style="background-color: #4D7A97 !important;"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>
 						</div>
 					</div>
 
@@ -327,7 +529,7 @@
 							<h3 class="card-title">Product Resource</h3>
 							<p><h4><span class="badge btn-info">New</span></h4></p>
 							<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							<a href="#" class="btn" style="background-color: #4D7A97 !important;">Detail</a>
+							<a href="#" class="btn" style="background-color: #4D7A97 !important;"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>
 						</div>
 					</div>
 
@@ -342,7 +544,7 @@
 							<h3 class="card-title">Subscription Resource</h3>
 							<p><h4><span class="badge btn-info">New</span></h4></p>
 							<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							<a href="#" class="btn" style="background-color: #4D7A97 !important;">Detail</a>
+							<a href="#" class="btn" style="background-color: #4D7A97 !important;"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>
 						</div>
 					</div>
 
@@ -357,7 +559,7 @@
 							<h3 class="card-title">Invoice Resource</h3>
 							<p><h4><span class="badge btn-info">New</span></h4></p>
 							<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							<a href="#" class="btn" style="background-color: #4D7A97 !important;">Detail</a>
+							<a href="#" class="btn" style="background-color: #4D7A97 !important;"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>
 						</div>
 					</div>
 
@@ -382,7 +584,7 @@
 							<h3 class="card-title">Asset Resource</h3>
 							<p><h4><span class="badge btn-info">New</span></h4></p>
 							<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							<a href="#" class="btn" style="background-color: #4D7A97 !important;">Detail</a>
+							<a href="#" class="btn" style="background-color: #4D7A97 !important;"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>
 						</div>
 					</div>
 
@@ -397,7 +599,7 @@
 							<h3 class="card-title">Auth Resource</h3>
 							<p><h4><span class="badge btn-info">New</span></h4></p>
 							<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							<a href="#" class="btn" style="background-color: #4D7A97 !important;">Detail</a>
+							<a href="#" class="btn" style="background-color: #4D7A97 !important;"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>
 						</div>
 					</div>
 
@@ -411,792 +613,571 @@
 
 	</div>
 		
-	<div id="service_detail" class="px-2" style="margin-top: 70px; display: none;>
+	<div id="service_detail" style="margin-top: 70px; display: none;" >
 	
-		<div class="container-fluid mt-0 pt-1">
-						
-				<!-- Card Light -->
-				<div class="card border border-0">
-				
-				  <!-- Card content -->
-				  <div class="card-body" style="padding-right: 0px; padding-left: 0px">
-				
-				    <!-- Title -->
-				    <h2 class="card-title">
-				    	API Customer Services
-				   		<button class="btn btn-danger btn-sm waves-effect waves-light float-right" onclick="change('service_detail', 'services');"><i class="fas fa-times mr-1"></i> Close</button>
-				   		<button class="btn btn-primary btn-sm waves-effect waves-light float-right" ><i class="fas fa-magic mr-1"></i> Testing</button>
-					</h2>
-				   			
-				   	<hr>		
-				   				    
-					<div class="row">
-					    
-					    <div class="col-md-12">
-						   <div class="p-3" style="background-color: #f7f3f3 !important"> <!-- bg-light -->
-						    	<form>
-								  <div class="form-row">
-								    <div class="form-group col-md-4">
-								      <label class="font-weight-bold">Title</label>
-								      <div style="width: 100%"><label >API JSONService</label></div>
-								    </div>
-								    <div class="form-group col-md-6">
-								      <label class="font-weight-bold">Description</label>
-								      <div style="width: 100%"><label >This service provides an API to teach monkeys how to eat bananas.</label></div>
-								    </div>
-								    <div class="form-group col-md-1">
-								      <label class="font-weight-bold">Version</label>
-								      <div style="width: 100%"><h4><span class="badge bg-info">1.0.0</span></h4></div>
-								    </div>
-								    <div class="form-group col-md-1">
-								      <label class="font-weight-bold" style="margin-left: 10px">OAS</label>
-								      <div style="width: 100%"><h4><span class="badge bg-warning">3.0.1</span></h4></div>
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group col-md-4">
-								      <label class="font-weight-bold">Contact email</label>
-								      <div style="width: 100%"><label >agsn10@hotmail.com</label></div>
-								    </div>
-								    <div class="form-group col-md-4">
-								      <label class="font-weight-bold">Contact name</label>
-								      <div style="width: 100%"><label >Antonio Neto</label></div>
-								    </div>
-								    <div class="form-group col-md-4">
-								      <label class="font-weight-bold">Contact URL</label>
-								      <div style="width: 100%"><label >http://www.docklee.com/contact</label></div>
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group col-md-4">
-								      <label class="font-weight-bold">License name</label>
-								      <div style="width: 100%"><label >Docklee License</label></div>
-								    </div>
-								    <div class="form-group col-md-4">
-								      <label class="font-weight-bold">License URL</label>
-								      <div style="width: 100%"><label >http://www.docklee.com/license</label></div>
-								    </div>
-								    <div class="form-group col-md-4">
-								      <label class="font-weight-bold">Terms Of Service</label>
-								      <div style="width: 100%"><label >http://www.docklee.com/term</label></div>
-								    </div>
-								  </div>
-								</form>
-						   </div>			
-					    </div>
-					    
+	   <div class="container-fluid mt-0">
+
+			<div class="row affix-row">
+
+				<div class="affix-sidebar" style="width: 350px; border-right: 2px solid; border-color: #dee3e9"> <!-- style="border-right: 2px solid #4D7A97;" -->
+					<div class="sidebar-nav" style="width: 350px; margin-top: 15px; padding-left: 10px; padding-right: 10px;">
+
+						<div class="">
+							<div class="row no-gutters">
+								<div class="col-md-12">
+									<div >
+										<h5 class="card-title" style="font-weight: bold;">Customer Resource</h5>
+										<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+									<!--	<div class="row" style="margin-left: 2px;">
+											<h4><span class="badge btn-info" style="margin-right: 5px">New</span></h4>
+											<h4><span class="badge btn-info" style="margin-right: 5px">New</span></h4>
+											<h4><span class="badge btn-info">New</span></h4>
+										</div> -->
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row" style="margin-left: 5px;margin-bottom: 10px;">
+							<h6 style="font-weight: bold;">Operations</h6>
+						</div>
+
+						<div class="card" style="margin-bottom: 7px; background-color: #EEEEEF; -webkit-box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); "> <!-- bg-light -->
+							<div class="card-body" style="padding: 0.4rem;">
+								<div class="row" style="margin-right: 0px; margin-left: 0px;">
+									<h6 style="margin-top: 4px;"><span class="badge btn-success">GET</span></h6>
+									<label style="margin-top: 5px; margin-left: 10px;">/orders/{UUUID}</label>
+									<label style="margin-top: 5px; margin-left: 10px"><b>Get Order</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="card" style="margin-bottom: 7px; background-color: #EEEEEF;  -webkit-box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%);"> <!-- bg-light -->
+							<div class="card-body" style="padding: 0.4rem;">
+								<div class="row" style="margin-right: 0px; margin-left: 0px;">
+									<h6 style="margin-top: 4px;"><span class="badge btn-danger">DELETE</span></h6>
+									<label style="margin-top: 5px; margin-left: 10px;">/orders/{UUUID}</label>
+									<label style="margin-top: 5px; margin-left: 10px"><b>Get Order</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="card" style="margin-bottom: 7px; background-color: #EEEEEF;  -webkit-box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%);"> <!-- bg-light -->
+							<div class="card-body" style="padding: 0.4rem;">
+								<div class="row" style="margin-right: 0px; margin-left: 0px;">
+									<h6 style="margin-top: 4px;"><span class="badge btn-primary">POST</span></h6>
+									<label style="margin-top: 5px; margin-left: 10px;">/orders/{UUUID}</label>
+									<label style="margin-top: 5px; margin-left: 10px"><b>Get Order</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="card" style="margin-bottom: 7px; background-color: #EEEEEF;  -webkit-box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%);"> <!-- bg-light -->
+							<div class="card-body" style="padding: 0.4rem;">
+								<div class="row" style="margin-right: 0px; margin-left: 0px;">
+									<h6 style="margin-top: 4px;"><span class="badge btn-info">PUT</span></h6>
+									<label style="margin-top: 5px; margin-left: 10px;">/orders/{UUUID}</label>
+									<label style="margin-top: 5px; margin-left: 10px"><b>Get Order</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="card" style="margin-bottom: 7px; background-color: #EEEEEF;  -webkit-box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%);"> <!-- bg-light -->
+							<div class="card-body" style="padding: 0.4rem;">
+								<div class="row" style="margin-right: 0px; margin-left: 0px;">
+									<h6 style="margin-top: 4px;"><span class="badge btn-secondary">PATCH</span></h6>
+									<label style="margin-top: 5px; margin-left: 10px;">/orders/{UUUID}</label>
+									<label style="margin-top: 5px; margin-left: 10px"><b>Get Order</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" style="margin-left: 5px;margin-bottom: 10px; margin-top: 20px">
+							<h6 style="font-weight: bold;">Schemas</h6>
+						</div>
+
 					</div>
-					  
-					<div class="row" style="margin-top: 10px;">
-					  	  <div class="col-md-12" style="margin-bottom: 19px;">
-					  	  
-								<ul class="nav nav-tabs" role="tablist">
-								  <li class="nav-item">
-								    <a class="nav-link active" href="#tags" role="tab" data-toggle="tab">Tags</a>
-								  </li>
-								  <li class="nav-item">
-								    <a class="nav-link" href="#extDocs" role="tab" data-toggle="tab">External Docs</a>
-								  </li>
-								  <li class="nav-item">
-								    <a class="nav-link" href="#security" role="tab" data-toggle="tab">Security</a>
-								  </li>
-								  <li class="nav-item">
-								    <a class="nav-link" href="#servers" role="tab" data-toggle="tab">Servers</a>
-								  </li>
-								</ul>
-								
-								<!-- Tab panes -->
-								<div class="tab-content" style="padding: .5rem .0rem .5rem; height: 200px">
-								  <div role="tabpanel" class="tab-pane fade in active show" id="tags">
-								  	  <table class="table table-striped table-sm">
-									    <thead style="background-color: #09c; color: white;">
-									      <tr>
-									        <th scope="col"><b>#</b></th>
-										    <th scope="col"><b>Name</b></th>
-										    <th scope="col"><b>Description</b></th>
-										    <th scope="col" style="text-align: center"><b>Ext. Docs</b></th>
-									      </tr>
-									    </thead>
-									    <tbody>
-									      <tr>
-									        <td scope="row" style="vertical-align: middle">1</td>
-									        <td style="vertical-align: middle">John</td>
-									        <td style="vertical-align: middle">Doe</td>
-									        <td style="text-align: center; width: 150px;">
-									        	<button type="button" data-toggle="modal" data-target="#externalDocsModal" class="btn btn-sm btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
-									        </td>
-									      </tr>
-									      <tr>
-									        <td scope="row" style="vertical-align: middle">2</td>
-									        <td style="vertical-align: middle">John</td>
-									        <td style="vertical-align: middle">Doe</td>
-									        <td style="text-align: center; width: 150px;">
-									        	<button type="button" class="btn btn-sm btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
-									        </td>
-									      </tr>
-									      <tr>
-									        <td scope="row" style="vertical-align: middle">3</td>
-									        <td style="vertical-align: middle">John</td>
-									        <td style="vertical-align: middle">Doe</td>
-									        <td style="text-align: center; width: 150px;">
-									        	<button type="button" class="btn btn-sm btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
-									        </td>
-									      </tr>
-									    </tbody>
-									  </table>
-								  </div>
-								  <div role="tabpanel" class="tab-pane fade" id="extDocs">bbb</div>
-								  <div role="tabpanel" class="tab-pane fade" id="security">ccc</div>
-								  <div role="tabpanel" class="tab-pane fade" id="servers">sccc</div>
-								</div>
-												    	   
-					      </div>
-					  </div>
-					  
-					<p><h3>Resources</h3></p>
-					<p><h6><strong>Base path:</strong> http://123.12.45.23:8080/docklee/product/ </h6></p>
-					<hr>
-					  
-					<div class="row" style="margin-top: 10px;">
-					  	  <div class="col-md-12">
-					  	  	   <table class="table table-sm table-striped">
-								  <thead style="background-color: #09c; color: white;">
-								    <tr>
-								      <th scope="col"><b>#</b></th>
-								      <th scope="col"><b>Resource path</b></th>
-								      <th scope="col"><b>Full path</b></th>
-								      <th scope="col" style="text-align: center;"><b>Method</b></th>
-								      <th scope="col" style="text-align: center;"><b>Business</b></th>
-								      <th scope="col" style="text-align: center;"><b>Detail</b></th>
-								    </tr>
-								  </thead>
-								  <tbody>
-								    <tr>
-								      <th scope="row" style="vertical-align: middle;">1</th>
-								      <td style="vertical-align: middle;">/subtract</td>
-								      <td style="vertical-align: middle;">http://123.12.45.23:8080/docklee/product/subtract</td>
-								      <td style="text-align: center; vertical-align: middle; width: 100px"><h5><span class="badge bg-info" style="width: 80px;">PUT</span></h5></td>
-								      <td style="text-align: center; vertical-align: middle; width: 120px">
-								      	  <button type="button" data-toggle="modal" data-target="#businessFlowModal" style="background-color: #0d47a1 !important;" class="btn btn-sm btn-dark waves-effect waves-light"><i class="fa fa-share-alt-square" aria-hidden="true"></i> Flow</button>
-								      </td>
-								      <td style="width: 275px; text-align: center">
-								      	  <button type="button" onclick="change('service_detail', 'request_info');" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Request</button>
-								      	  <button type="button" onclick="change('service_detail', 'response_info');" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Response</button>
-								      </td>
-								    </tr>
-								    <tr>
-								      <th scope="row" style="vertical-align: middle;">2</th>
-								      <td style="vertical-align: middle;">/subtract</td>
-								      <td style="vertical-align: middle;">http://123.12.45.23:8080/docklee/product/subtract</td>
-								      <td style="text-align: center; vertical-align: middle; width: 100px"><h5><span class="badge bg-primary" style="width: 80px;">POST</span></h5></td>
-								      <td style="text-align: center; vertical-align: middle; width: 120px">
-								      	  <button type="button" style="background-color: #0d47a1 !important;" class="btn btn-sm btn-dark waves-effect waves-light"><i class="fa fa-share-alt-square" aria-hidden="true"></i> Flow</button>
-								      </td>								      
-								      <td style="width: 275px; text-align: center">
-								      	  <button type="button" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Request</button>
-								      	  <button type="button" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Response</button>
-								      </td>
-								    </tr>
-								    <tr>
-								      <th scope="row" style="vertical-align: middle;">3</th>
-								      <td style="vertical-align: middle;">/subtract</td>
-								      <td style="vertical-align: middle;">http://123.12.45.23:8080/docklee/product/subtract</td>
-								      <td style="text-align: center; vertical-align: middle; width: 100px"><h5><span class="badge bg-warning" style="width: 80px;">DELETE</span></h5></td>
-								      <td style="text-align: center; vertical-align: middle; width: 120px">
-								      	  <button type="button" style="background-color: #0d47a1 !important;" class="btn btn-sm btn-dark waves-effect waves-light"><i class="fa fa-share-alt-square" aria-hidden="true"></i> Flow</button>
-								      </td>
-								      <td style="width: 275px; text-align: center">
-								      	  <button type="button" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Request</button>
-								      	  <button type="button" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Response</button>
-								      </td>
-								    </tr>
-								    <tr>
-								      <th scope="row" style="vertical-align: middle;">4</th>
-								      <td style="vertical-align: middle;">/subtract</td>
-								      <td style="vertical-align: middle;">http://123.12.45.23:8080/docklee/product/subtract</td>
-								      <td style="text-align: center; vertical-align: middle; width: 100px"><h5><span class="badge bg-success" style="width: 80px;">GET</span></h5></td>
-								      <td style="text-align: center; vertical-align: middle; width: 120px">
-								      	  <button type="button" style="background-color: #0d47a1 !important;" class="btn btn-sm btn-dark waves-effect waves-light"><i class="fa fa-share-alt-square" aria-hidden="true"></i> Flow</button>
-								      </td>
-								      <td style="width: 275px; text-align: center">
-								      	  <button type="button" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Request</button>
-								      	  <button type="button" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Response</button>
-								      </td>
-								    </tr>
-								  </tbody>
-								</table>
-					  	  </div>
-					  </div>  
-					
-					<!-- modal response -->
-					<div class="modal fade" id="responseModal" role="dialog" aria-labelledby="exampleModalLabel" >
-						  <div class="modal-dialog modal-xl" role="document">
-						    <div class="modal-content" >
-						      <div class="modal-header" style="background-color: rgb(13, 87, 155); color: white;">
-						        <h5 class="modal-title" id="exampleModalLabel"><b>Response Info</b></h5>
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true" style="color: white">&times;</span>
-						        </button>
-						      </div>
-						      <div class="modal-body">
-						        <div class="row">				    
-								    <div class="col-md-12">
-									    <div class="row">				    
-								    <div class="col-md-12">
-								      <table class="table table-sm">
-									    <thead style="background-color: #09c; color: white;">
-									      <tr>
-									        <th><strong>#</strong></th>
-									        <th><strong>Ref</strong></th>
-										    <th><strong>Response code</strong></th>
-										    <th><strong>Description</strong></th>
-										    <th></th>
-									      </tr>
-									    </thead>
-									    <tbody>
-									    
-									      <tr>
-									        <td style="vertical-align: middle">1</td>
-									        <td style="vertical-align: middle">John</td>
-									        <td style="vertical-align: middle">John</td>
-									        <td style="vertical-align: middle">Doe</td>
-									        <td style="text-align: center; width: 150px;">
-									        	<button type="button" class="btn btn-sm btn-info" onclick="show('multiCollapseExample2');"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
-									        </td>								       
-									      </tr>
-									      
-									      <tr id="multiCollapseExample2" style="display: none">
-									      	  <td colspan="5">
-											  	<div class="card card-body">
-												  	  <ul class="nav nav-tabs" role="tablist">
-														  <li class="nav-item">
-														    <a class="nav-link active" href="#responseHeaders" role="tab" data-toggle="tab">Headers</a>
-														  </li>
-														  <li class="nav-item">
-														    <a class="nav-link" href="#responseContent" role="tab" data-toggle="tab">Content</a>
-														  </li>
-														  <li class="nav-item">
-														    <a class="nav-link" href="#responseExtensions" role="tab" data-toggle="tab">Extensions</a>
-														  </li>
-														  <li class="nav-item">
-														    <a class="nav-link" href="#responseLinks" role="tab" data-toggle="tab">Links</a>
-														  </li>
-														</ul>
-														
-														<!-- Tab panes -->
-														<div class="tab-content" style="padding: .5rem .0rem .5rem;" style="height: 200px">
-														  <div role="tabpanel" class="tab-pane fade in active show" id="responseHeaders"> Headers </div>
-														  <div role="tabpanel" class="tab-pane fade" id="responseContent"> Content </div>
-														  <div role="tabpanel" class="tab-pane fade" id="responseExtensions"> Extensions </div>
-														  <div role="tabpanel" class="tab-pane fade" id="responseLinks"> Links </div>
-														</div>
-											  	</div>
-											  </td>
-										  </tr>
-										  
-									    </tbody>
-									  </table>
-								    </div>							    
-								</div>			
-								    </div>							    
-								</div>
-								<div class="row" style="margin-top: 10px;">				    
-								    <div class="col-md-12">
-								    </div>
-								</div>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-									
-					<!-- modal business flow -->
-					<div class="modal fade" id="businessFlowModal" role="dialog" aria-labelledby="exampleModalLabel" >
-						  <div class="modal-dialog modal-xl" role="document">
-						    <div class="modal-content" >
-						      <div class="modal-header" style="background-color: rgb(13, 87, 155); color: white;">
-						        <h5 class="modal-title" id="exampleModalLabel"><b>Business Flow</b></h5>
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true" style="color: white">&times;</span>
-						        </button>
-						      </div>
-						      <div class="modal-body">
-						        <div class="row">				    
-								    <div class="col-md-12">
-								    
-								    </div>							    
-								</div>								
-						      </div>
-						    </div>
-						  </div>
-						</div>
-							
-					<!-- modal external docs -->
-					<div class="modal fade" id="externalDocsModal" role="dialog" aria-labelledby="exampleModalLabel" >
-						  <div class="modal-dialog modal-lg" role="document">
-						    <div class="modal-content" >
-						      <div class="modal-header" style="background-color: rgb(13, 87, 155); color: white;">
-						        <h5 class="modal-title" id="exampleModalLabel"><b>External Documentation</b></h5>
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true" style="color: white">&times;</span>
-						        </button>
-						      </div>
-						      <div class="modal-body">
-						        <div class="row">				    
-								    <div class="col-md-12">
-								      <table class="table table-sm">
-									    <thead style="background-color: #09c; color: white;">
-									      <tr>
-									        <th scope="col"><b>#</b></th>
-										    <th scope="col"><b>Description</b></th>
-										    <th scope="col"><b>URL</b></th>
-										    <th scope="col" style="text-align: center"><b>Extensions</b></th>
-									      </tr>
-									    </thead>
-									    <tbody>
-									     <tr>
-									        <td scope="row" style="vertical-align: middle">1</td>
-									        <td style="vertical-align: middle">John</td>
-									        <td style="vertical-align: middle">Doe</td>
-									        <td style="text-align: center; width: 150px;">
-									        	<button type="button" class="btn btn-sm btn-info" onclick="show('multiCollapseExample3');"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
-									        </td>								       
-									      </tr>
-									      <tr id="multiCollapseExample3" style="display: none">
-									      	  <td colspan="4">
-											  	<div class="card card-body">
-												   <table class="table table-sm">
-													  <thead>
-													    <tr>
-													      <th scope="col"><strong>#</strong></th>
-													      <th scope="col"><strong>Name</strong></th>
-													      <th scope="col"><strong>Ext. Prop. Name</strong></th>
-													      <th scope="col"><strong>Ext. Prop. Value</strong></th>
-													    </tr>
-													  </thead>
-													  <tbody>
-													    <tr>
-													      <th scope="row">1</th>
-													      <td>Mark</td>
-													      <td>Otto</td>
-													      <td>@mdo</td>
-													    </tr>
-													    <tr>
-													      <th scope="row">2</th>
-													      <td>Jacob</td>
-													      <td>Thornton</td>
-													      <td>@fat</td>
-													    </tr>
-													    <tr>
-													      <th scope="row">3</th>
-													      <td colspan="2">Larry the Bird</td>
-													      <td>@twitter</td>
-													    </tr>
-													  </tbody>
-													</table>
-											  	</div>
-											  </td>
-										  </tr>						     
-									    </tbody>
-									  </table>
-								    </div>							    
-								</div>								
-						      </div>
-						    </div>
-						  </div>
-						</div>
-																			  
-				  </div>
-				
 				</div>
-				<!-- Card Light -->
-				   
-		    </div>
-		
-	</div>
-	
-	<div id="request_info" class="px-2" style="margin-top: 90px; display: none;">
-	
-		<div class="container-fluid mt-0 pt-1">
-						
-				<!-- Card Light -->
-				<div class="card border border-0">
-				
-				  <!-- Card content -->
-				  <div class="card-body" style="padding-right: 0px; padding-left: 0px">
-				
-				    <!-- Title -->
-				    <h2 class="card-title">
-				    	Request Info (API Customer Services)
-				   		<button class="btn btn-danger btn-sm waves-effect waves-light float-right"  onclick="change('request_info', 'service_detail');"><i class="fas fa-times mr-1"></i> Close</button>
-					</h2>
-				   			
-				   	<hr>		
-				   				    
-					<div class="row">					    
-					    <div class="col-md-12">
-						   <div class="p-3" style="background-color: #f7f3f3 !important"> <!-- bg-light -->
-						    	<form>
-									<div class="form-row">
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold">Operation Id</label>
-											      <div style="width: 100%"><label> 10 </label></div>
-											    </div>
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold">Resource path</label>
-											      <div style="width: 100%"><label> ... </label></div>
-											    </div>
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold">HTTP Method</label>
-											      <div style="width: 100%"> <label> ... </label> </div>
-											    </div>
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold" style="margin-left: 10px">Summary</label>
-											      <div style="width: 100%"><label> ... </label></div>
-											    </div>
-									</div>
-									<div class="form-row">
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold">Tags</label>
-											      <div style="width: 100%"><label> ... </label></div>
-											    </div>
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold">Description</label>
-											      <div style="width: 100%"><label> ... </label></div>
-											    </div>
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold">Consumes</label>
-											      <div style="width: 100%"><label> ... </label></div>
-											    </div>
-											    <div class="form-group col-md-3">
-											      <label class="font-weight-bold">Produces</label>
-											      <div style="width: 100%"><label> ... </label></div>
-											    </div>
-									</div>
-								</form>
-						   </div>			
-					    </div>				    
-				    </div>
-					  	
-					<div class="row" style="margin-top: 10px;">
-					  	  <div class="col-md-12" style="margin-bottom: 19px;">
-					  	  		 <ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item">
-										<a class="nav-link active" href="#requestBody" role="tab" data-toggle="tab">Request body</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#parameters" role="tab" data-toggle="tab">Parameters</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#serversRequest" role="tab" data-toggle="tab">Servers</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#securityRequest" role="tab" data-toggle="tab">Security</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#externalDocumentationRequest" role="tab" data-toggle="tab">External Documentation</a>
-									</li>									
-								 </ul>										
-								<!-- Tab panes -->
-								<div class="tab-content" style="padding: .5rem .0rem .5rem;" style="height: 200px">
-									<div role="tabpanel" class="tab-pane fade in active show" id="requestBody">
-										 <div class="p-3" style="background-color: #f7f3f3 !important"> <!-- bg-light -->
-											 <form>
-												<div class="form-row">
-													    <div class="form-group col-md-4">
-													      <label class="font-weight-bold">Description</label>
-													      <div style="width: 100%"><label >...</label></div>
-													    </div>
-													    <div class="form-group col-md-4">
-													      <label class="font-weight-bold">Ref</label>
-													      <div style="width: 100%"><label >...</label></div>
-													    </div>
-													    <div class="form-group col-md-4">
-													      <label class="font-weight-bold">Required</label>
-													      <div style="width: 100%"><label >...</label></div>
-													    </div>
-												</div>													  
-											</form>
-										 </div>											   
-										 										 
-										 <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist" style="padding-top: 10px;">
-										  <li class="nav-item">
-										    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#requestBodyContents" role="tab" aria-controls="requestBodyContents" aria-selected="true">Contents</a>
-										  </li>
-										  <li class="nav-item">
-										    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#requestBodyExtensions" role="tab" aria-controls="requestBodyExtensions" aria-selected="false">Extensions</a>
-										  </li>
-										</ul>
-										<div class="tab-content" id="pills-tabContent" style="padding: .5rem .0rem .5rem;" style="height: 400px">
-										  <div class="tab-pane fade show active" id="requestBodyContents" role="tabpanel" aria-labelledby="requestBodyContents-tab">
-										  		 <div class="col-md-12" style="margin-bottom: 19px;">
-										  	  		<ul class="nav nav-tabs" role="tablist">
-														<li class="nav-item">
-															<a class="nav-link active" href="#content1" role="tab" data-toggle="tab">Content #1</a>
-														</li>
-														<li class="nav-item">
-															<a class="nav-link" href="#content2" role="tab" data-toggle="tab">Content #2</a>
-														</li>
-													 </ul>										
-													<!-- Tab panes -->
-													<div class="tab-content" style="padding: .5rem .0rem .5rem;" style="height: 200px">
-														 <div role="tabpanel" class="tab-pane fade in active show" id="content1">
-														 		<div class="row">
-															 		<label style="padding-right: 10px; margin-left: 15px; margin-top: 10px"><strong>Media type</strong></label>	
-															 		<label style="margin-top: 10px">application/json</label>		
-															 	</div>
-															 	
-															 	<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist" style="padding-top: 10px;">
-																	  <li class="nav-item">
-																	    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#examples" role="tab" aria-controls="examples" aria-selected="true">Examples</a>
-																	  </li>
-																	  <li class="nav-item">
-																	    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#schema" role="tab" aria-controls="schema" aria-selected="false">Schema</a>
-																	  </li>
-																</ul>
-																<div class="tab-content" id="pills-tabContent" style="padding: .5rem .0rem .5rem;" style="height: 500px">
-																	  <div class="tab-pane fade show active" id="examples" role="tabpanel" aria-labelledby="examples-tab">
-																	  	 <div class="col-md-12" style="margin-top: 19px; padding-left: 0px; padding-right: 0px;">																							
-																  	  	   <table class="table table-sm table-striped">
-																			  <thead style="background-color: #09c; color: white;">
-																			    <tr>
-																			      <th scope="col"><b>#</b></th>
-																			      <th scope="col"><b>Name</b></th>
-																			      <th scope="col"><b>Summary</b></th>
-																			      <th scope="col"><b>External Value</b></th>
-																			      <th scope="col"><b>Ref</b></th>
-																			      <th scope="col" style="text-align: center"><b>Example</b></th>
-																			    </tr>
-																			  </thead>
-																			  <tbody>
-																			    <tr>
-																			      <th scope="row" style="vertical-align: middle;">1</th>
-																			      <td style="vertical-align: middle;">/subtract</td>
-																			      <td style="vertical-align: middle;">http://123.12.45.23:8080/docklee/product/subtract</td>
-																			      <td style="vertical-align: middle;">http://www.docklee.com</td>
-																			      <td style="vertical-align: middle;">#10</td>
-																			      <td style="text-align: center">
-																			      	  <button type="button" onclick="change('service_detail', 'request_info');" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Detail</button>
-																			      </td>
-																			    </tr>																			   																		    
-																			  </tbody>
-																			</table>																  
-																	  	 </div>
-																	  </div>
-																	  <div class="tab-pane fade" id="schema" role="tabpanel" aria-labelledby="schema-tab">
-																	  	 <div class="col-md-12" style="margin-bottom: 19px;">
-																	  	      
-																	  	 </div>
-																	  </div>
-																</div>															 						  		
-														 </div>
-														 <div role="tabpanel" class="tab-pane fade" id="content2">
-														 	    <div class="row">
-															 		<label style="padding-right: 10px; margin-left: 15px; margin-top: 10px"><strong>Media type</strong></label>	
-															 		<label style="margin-top: 10px">application/json</label>		
-															 	</div>														 	
-															 	<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist" style="padding-top: 10px;">
-																	  <li class="nav-item">
-																	    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#examples" role="tab" aria-controls="examples" aria-selected="true">Examples</a>
-																	  </li>
-																	  <li class="nav-item">
-																	    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#schema" role="tab" aria-controls="schema" aria-selected="false">Schema</a>
-																	  </li>
-																</ul>
-																<div class="tab-content" id="pills-tabContent" style="padding: .5rem .0rem .5rem;" style="height: 500px">
-																	  <div class="tab-pane fade show active" id="examples" role="tabpanel" aria-labelledby="examples-tab">
-																	  	 <div class="col-md-12" style="margin-top: 19px; padding-left: 0px; padding-right: 0px;">																							
-																  	  	   <table class="table table-sm table-striped">
-																			  <thead style="background-color: #09c; color: white;">
-																			    <tr>
-																			      <th scope="col"><b>#</b></th>
-																			      <th scope="col"><b>Name</b></th>
-																			      <th scope="col"><b>Summary</b></th>
-																			      <th scope="col"><b>External Value</b></th>
-																			      <th scope="col"><b>Ref</b></th>
-																			      <th scope="col" style="text-align: center"><b>Example</b></th>
-																			    </tr>
-																			  </thead>
-																			  <tbody>
-																			    <tr>
-																			      <th scope="row" style="vertical-align: middle;">1</th>
-																			      <td style="vertical-align: middle;">/subtract</td>
-																			      <td style="vertical-align: middle;">http://123.12.45.23:8080/docklee/product/subtract</td>
-																			      <td style="vertical-align: middle;">http://www.docklee.com</td>
-																			      <td style="vertical-align: middle;">#10</td>
-																			      <td style="text-align: center">
-																			      	  <button type="button" onclick="change('service_detail', 'request_info');" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Detail</button>
-																			      </td>
-																			    </tr>																			   																		    
-																			  </tbody>
-																			</table>																  
-																	  	 </div>
-																	  </div>
-																	  <div class="tab-pane fade" id="schema" role="tabpanel" aria-labelledby="schema-tab">
-																	  	 <div class="col-md-12" style="margin-bottom: 19px;">
-																	  	 Schema
-																	  	 </div>
-																	  </div>
-																</div>	
-														 </div>
-													</div>	    	   
-										      </div>
-										  </div>
-										  <div class="tab-pane fade" id="requestBodyExtensions" role="tabpanel" aria-labelledby="requestBodyExtensions-tab">									  	    
-										  	    <div class="col-md-12" style="margin-top: 19px; padding-left: 0px; padding-right: 0px;">
-											  	     <table class="table table-sm">
-													    <thead style="background-color: #09c; color: white;">
-													      <tr>
-													        <th scope="col"><b>#</b></th>
-														    <th scope="col"><b>Name</b></th>
-														    <th scope="col" style="text-align: center; width: 250px"><b>Extension Property</b></th>
-													      </tr>
-													    </thead>
-													    <tbody>
-													     <tr>
-													        <td scope="row" style="vertical-align: middle">1</td>
-													        <td style="vertical-align: middle">John</td>
-													        <td style="text-align: center; width: 250px;">
-													        	<button type="button" class="btn btn-sm btn-info" onclick="show('multiCollapseExample4');"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
-													        </td>								       
-													      </tr>
-													      <tr id="multiCollapseExample4" style="display: none">
-													      	  <td colspan="3">
-															  	<div class="card card-body">
-																   <table class="table table-sm">
-																	  <thead>
-																	    <tr>
-																	      <th><strong>#</strong></th>
-																	      <th><strong>Name</strong></th>
-																	      <th><strong>Value</strong></th>
-																	    </tr>
-																	  </thead>
-																	  <tbody>
-																	    <tr>
-																	      <td>1</td>
-																	      <td>Mark</td>
-																	      <td>Otto</td>
-																	    </tr>
-																	    <tr>
-																	      <td>2</td>
-																	      <td>Jacob</td>
-																	      <td>Thornton</td>
-																	    </tr>
-																	    <tr>
-																	      <td>3</td>
-																	      <td>Larry the Bird</td>
-																	      <td>@twitter</td>
-																	    </tr>
-																	  </tbody>
-																	</table>
-															  	</div>
-															  </td>
-														  </tr>						     
-													    </tbody>
-													  </table>
+
+				<div class="col-sm-9 col-md-6 affix-content">
+					<div class="row" style="margin-top: 34px;">
+						<div class="col-12" style="padding-left: 0px">
+							<h2 style="font-weight: bold;"># Get Order</h2>
+						</div>
+
+						<div class="card" style="margin-top: 30px; margin-bottom: 7px; background-color: #EEEEEF; -webkit-box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); box-shadow: 0 0px 0px 0 rgb(0 0 0 / 0%), 0 0px 0px 0 rgb(0 0 0 / 0%); "> <!-- bg-light -->
+							<div class="row" style="margin-right: 10px; margin-left: 10px; margin-top:4px; margin-bottom: 5px">
+								<h4 style="margin-top: 4px;"><span class="badge btn-success">GET</span></h4>
+								<label style="padding-top: 10px; padding-left: 10px;">https://api.protect.earth/v1</label>
+								<label style="margin-top: 10px;"><b>/orders/{UUUID}</b></label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" style="margin-top: 40px;">
+						<p>Orders are made by organizations to fund tree planting, and when trees are planted those orders will be marked as fullfilled.
+						    Orders may be partially fulfilled, and it is you wish to import those. Make sure to dedulicate the trees if you do.</p>
+					</div>
+
+					<div class="row" style="margin-top: 40px;">
+						<div class="col-md-12">
+							<h2 style="font-weight: bold;">Request</h2>
+						</div>
+
+						<div class="p-3 col-md-12" style="padding-bottom: 0px !important;  padding-left: 0px !important;"> <!-- bg-light -->
+
+							<ul class="nav nav-tabs" role="tablist">
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link show active" href="#reqBodyReq" role="tab" data-toggle="tab" aria-selected="true">Request Body</a>
+								</li>
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link show" href="#parametersReq" role="tab" data-toggle="tab" aria-selected="false">Parameters</a>
+								</li>
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link" href="#securityReq" role="tab" data-toggle="tab">Security</a>
+								</li>
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link show" href="#externalDocumentationReq" role="tab" data-toggle="tab" aria-selected="false">External Documentation</a>
+								</li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content" style="padding: .5rem .0rem .0rem;">
+								<div role="tabpanel" class="tab-pane fade in active show" id="reqBodyReq">
+
+									<div class="p-3" style="background-color: #f7f3f3 !important">
+										<form>
+											<div class="form-row">
+												<div class="form-group col-md-8" style="margin-bottom: 0rem;">
+													<label class="font-weight-bold text-muted">Description</label>
+													<div style="width: 100%"><label>Body data structure</label></div>
 												</div>
-										  </div>
+												<div class="form-group col-md-2" style="margin-bottom: 0rem;">
+													<label class="font-weight-bold text-muted">Ref</label>
+													<div style="width: 100%"><label>#getOrder</label></div>
+												</div>
+												<div class="form-group col-md-2" style="margin-bottom: 0rem;" align="center">
+													<label class="font-weight-bold text-muted">Required</label>
+													<div style="width: 100%" align="center">
+														<i class="fa fa-check-circle" aria-hidden="true"></i>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+
+									<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist" style="padding-top: 10px;">
+										<li class="nav-item">
+											<a class="nav-link show active" id="pills-home-tab" data-toggle="pill" href="#requestBodyContents" role="tab" aria-controls="requestBodyContents" aria-selected="true">Contents</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link show" id="pills-profile-tab" data-toggle="pill" href="#requestBodyExtensions" role="tab" aria-controls="requestBodyExtensions" aria-selected="false">Extensions</a>
+										</li>
+									</ul>
+
+									<div class="tab-content" id="pills-tabContent" style="padding: .5rem .0rem .5rem;">
+										<div class="tab-pane fade active show" id="requestBodyContents" role="tabpanel" aria-labelledby="requestBodyContents-tab">
+											<div class="col-md-12" style="margin-bottom: 19px;">
+												<ul class="nav nav-tabs" role="tablist">
+													<li class="nav-item waves-effect waves-light">
+														<a class="nav-link active show" href="#content1" role="tab" data-toggle="tab" aria-selected="true">Content #1</a>
+													</li>
+													<li class="nav-item waves-effect waves-light">
+														<a class="nav-link show" href="#content2" role="tab" data-toggle="tab" aria-selected="false">Content #2</a>
+													</li>
+												</ul>
+												<!-- Tab panes -->
+												<div class="tab-content" style="padding: .5rem .0rem .5rem;">
+													<div role="tabpanel" class="tab-pane fade in active show" id="content1">
+														<div class="row">
+															<label style="padding-right: 10px; margin-left: 15px; margin-top: 10px"><strong>Media type</strong></label>
+															<label style="margin-top: 10px">application/json</label>
+														</div>
+
+														<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist" style="padding-top: 10px;">
+															<li class="nav-item">
+																<a class="nav-link show active" id="pills-home-tab" data-toggle="pill" href="#examples" role="tab" aria-controls="examples" aria-selected="true">Examples</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link show" id="pills-profile-tab" data-toggle="pill" href="#schema" role="tab" aria-controls="schema" aria-selected="false">Schema</a>
+															</li>
+														</ul>
+
+														<div class="tab-content" id="pills-tabContent" style="padding: .5rem .0rem .5rem;">
+															<div class="tab-pane fade active show" id="examples" role="tabpanel" aria-labelledby="examples-tab">
+																<div class="col-md-12" style="margin-top: 19px; padding-left: 0px; padding-right: 0px;">
+
+																</div>
+															</div>
+															<div class="tab-pane fade" id="schema" role="tabpanel" aria-labelledby="schema-tab">
+																<div class="col-md-12" style="margin-bottom: 19px;">
+
+																</div>
+															</div>
+														</div>
+													</div>
+													<div role="tabpanel" class="tab-pane fade" id="content2">
+														<div class="row">
+															<label style="padding-right: 10px; margin-left: 15px; margin-top: 10px"><strong>Media type</strong></label>
+															<label style="margin-top: 10px">application/json</label>
+														</div>
+														<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist" style="padding-top: 10px;">
+															<li class="nav-item">
+																<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#examples" role="tab" aria-controls="examples" aria-selected="true">Examples</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#schema" role="tab" aria-controls="schema" aria-selected="false">Schema</a>
+															</li>
+														</ul>
+														<div class="tab-content" id="pills-tabContent" style="padding: .5rem .0rem .5rem;">
+															<div class="tab-pane fade show active" id="examples" role="tabpanel" aria-labelledby="examples-tab">
+																<div class="col-md-12" style="margin-top: 19px; padding-left: 0px; padding-right: 0px;">
+
+																</div>
+															</div>
+															<div class="tab-pane fade" id="schema" role="tabpanel" aria-labelledby="schema-tab">
+																<div class="col-md-12" style="margin-bottom: 19px;">
+																	Schema
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-										 									  		
-									 </div>
-									 <div role="tabpanel" class="tab-pane fade" id="parameters">parameters</div>
-									 <div role="tabpanel" class="tab-pane fade" id="serversRequest">serversRequest</div>
-									 <div role="tabpanel" class="tab-pane fade" id="securityRequest">securityRequest</div>
-									 <div role="tabpanel" class="tab-pane fade" id="externalDocumentationRequest">
-									 	 <div class="col-md-12" style="margin-top: 19px; padding-left: 0px; padding-right: 0px;">
-											  	     <table class="table table-sm">
-													    <thead style="background-color: #09c; color: white;">
-													      <tr>
-													        <th scope="col"><b>#</b></th>
-														    <th scope="col"><b>Name</b></th>
-														    <th scope="col" style="text-align: center; width: 250px"><b>Extension Property</b></th>
-													      </tr>
-													    </thead>
-													    <tbody>
-													     <tr>
-													        <td scope="row" style="vertical-align: middle">1</td>
-													        <td style="vertical-align: middle">John</td>
-													        <td style="text-align: center; width: 250px;">
-													        	<button type="button" class="btn btn-sm btn-info" onclick="show('multiCollapseExample4');"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
-													        </td>								       
-													      </tr>
-													      <tr id="multiCollapseExample4" style="display: none">
-													      	  <td colspan="3">
-															  	<div class="card card-body">
-																   <table class="table table-sm">
-																	  <thead>
-																	    <tr>
-																	      <th><strong>#</strong></th>
-																	      <th><strong>Name</strong></th>
-																	      <th><strong>Value</strong></th>
-																	    </tr>
-																	  </thead>
-																	  <tbody>
-																	    <tr>
-																	      <td>1</td>
-																	      <td>Mark</td>
-																	      <td>Otto</td>
-																	    </tr>
-																	    <tr>
-																	      <td>2</td>
-																	      <td>Jacob</td>
-																	      <td>Thornton</td>
-																	    </tr>
-																	    <tr>
-																	      <td>3</td>
-																	      <td>Larry the Bird</td>
-																	      <td>@twitter</td>
-																	    </tr>
-																	  </tbody>
-																	</table>
-															  	</div>
-									 </div>
-								</div>	    	   
-					      </div>
-					  </div>
-										  		  
-				  </div>
-				
+										<div class="tab-pane fade" id="requestBodyExtensions" role="tabpanel" aria-labelledby="requestBodyExtensions-tab">
+											<div class="col-md-12" style="margin-top: 19px; padding-left: 0px; padding-right: 0px;">
+												<table class="table table-sm">
+													<thead style="background-color: #09c; color: white;">
+													<tr>
+														<th scope="col"><b>#</b></th>
+														<th scope="col"><b>Name</b></th>
+														<th scope="col" style="text-align: center; width: 250px"><b>Extension Property</b></th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr>
+														<td scope="row" style="vertical-align: middle">1</td>
+														<td style="vertical-align: middle">John</td>
+														<td style="text-align: center; width: 250px;">
+															<button type="button" class="btn btn-sm btn-info waves-effect waves-light" onclick="show('multiCollapseExample4');"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</button>
+														</td>
+													</tr>
+													<tr id="multiCollapseExample4" style="display: none;">
+														<td colspan="3">
+															<div class="card card-body">
+																<table class="table table-sm">
+																	<thead>
+																	<tr>
+																		<th><strong>#</strong></th>
+																		<th><strong>Name</strong></th>
+																		<th><strong>Value</strong></th>
+																	</tr>
+																	</thead>
+																	<tbody>
+																	<tr>
+																		<td>1</td>
+																		<td>Mark</td>
+																		<td>Otto</td>
+																	</tr>
+																	<tr>
+																		<td>2</td>
+																		<td>Jacob</td>
+																		<td>Thornton</td>
+																	</tr>
+																	<tr>
+																		<td>3</td>
+																		<td>Larry the Bird</td>
+																		<td>@twitter</td>
+																	</tr>
+																	</tbody>
+																</table>
+															</div>
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="parametersReq">
+									<table class="table table-sm table-striped ">
+										<thead style="background-color: #09c; color:white">
+											<tr>
+												<th scope="col" style="vertical-align: inherit">#</th>
+												<th scope="col" style="vertical-align: inherit">Name</th>
+												<th scope="col" style="vertical-align: inherit">In</th>
+												<th scope="col" style="width: 130px;"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit; text-decoration-line: line-through;">x-docklee-token</td>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;"><h6><span class="badge btn-info">PATH</span></h6></td>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;">
+													<button type="button" class="btn btn-sm btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> DETAIL</button>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">2</th>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;">x-docklee-grant</td>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;"><h6><span class="badge btn-success">HEADER</span></h6></td>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;">
+													<button type="button" class="btn btn-sm btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> DETAIL</button>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">3</th>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;">x-docklee-username</td>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;"><h6><span class="badge btn-success">HEADER</span></h6></td>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;">
+													<button type="button" class="btn btn-sm btn-info" ><i class="fa fa-info-circle" aria-hidden="true"></i> DETAIL</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="securityReq">
+									<table class="table table-sm table-striped ">
+										<thead style="background-color: #09c; color:white">
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">Name</th>
+												<th scope="col">Scopes</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td>OAuth2</td>
+												<td>
+													<div class="row">
+														<h6 style="margin-left: 5px; margin-right: 5px;"><span class="badge btn-success">ADMIN</span></h6>
+														<h6><span class="badge btn-success">USERS</span></h6>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="externalDocumentationReq">
+									<table class="table table-sm table-striped ">
+										<thead style="background-color: #09c; color:white">
+										<tr>
+											<th scope="col" style="vertical-align: inherit">#</th>
+											<th scope="col" style="vertical-align: inherit">URL</th>
+											<th scope="col" style="width: 130px;"></th>
+										</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;">https://www.docklee.com.br/xpto</td>
+												<td style="padding-top: 0.1rem; padding-bottom: 0.1rem; vertical-align: inherit;">
+													<button type="button" class="btn btn-sm btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> DETAIL</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="row" style="margin-top: 20px;">
+						<div class="col-md-12">
+							<h2 style="font-weight: bold;">Response</h2>
+						</div>
+
+						<div class="p-3 col-md-12" style="padding-bottom: 0px !important; padding-left: 0px !important;"> <!-- bg-light -->
+
+							<ul class="nav nav-tabs" role="tablist">
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link show active" href="#infoReq" role="tab" data-toggle="tab" aria-selected="true">200</a>
+								</li>
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link show" href="#serversReq" role="tab" data-toggle="tab" aria-selected="false">400</a>
+								</li>
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link" href="#securityReq" role="tab" data-toggle="tab">422</a>
+								</li>
+								<li class="nav-item waves-effect waves-light">
+									<a class="nav-link show" href="#externalDocumentationReq" role="tab" data-toggle="tab" aria-selected="false">503</a>
+								</li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content" style="padding: .5rem .0rem .0rem;">
+								<div role="tabpanel" class="tab-pane fade in active show" id="infoReq">Info</div>
+								<div role="tabpanel" class="tab-pane fade" id="serversReq">Servers</div>
+								<div role="tabpanel" class="tab-pane fade" id="securityReq">Security Requirement</div>
+								<div role="tabpanel" class="tab-pane fade" id="externalDocumentationReq">External Documentation</div>
+							</div>
+
+						</div>
+
+					</div>
+
+
 				</div>
-				<!-- Card Light -->
-				   
-		    </div>
+
+				<div class="col-sm-9 col-md-3">
+					<div class="row">
+						<div style="width:100%;  margin-top: 30px">
+							<button type="button" class="btn btn-sm btn-outline-danger" style="float: right !important; font-weight: bold;">Close</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="card text-body mb-3" style="max-width: 34rem; background-color: #92a7bf; margin-top: 86px; width: 100%">
+							<div class="card-header" style="color: white; padding-bottom: 5px; padding-top: 5px;">
+								<label style="margin-top: 9px;">Request</label>
+								<button type="button" class="btn btn-sm" style="background-color: rgb(13, 87, 155); float: right">
+									<i class="fa fa-share-alt-square" aria-hidden="true"></i> Flow
+								</button>
+							</div>
+							<div class="card-body" style="padding: 10px; background-color: white">
+								<ul class="nav nav-pills" style="font-size: 10px; font-weight: bold;">
+									<li class="nav-item">
+										<a class="nav-link active" id="header-tab" data-toggle="tab" href="#header" role="tab" aria-controls="header">Header</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" id="data-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data">Data</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Authentication</a>
+									</li>
+								</ul>
+								<!-- Tab panes -->
+								<div class="tab-content" style="padding: .5rem .0rem .5rem; height: 220px;">
+									<div role="tabpanel" class="tab-pane fade in active show" id="header" role="tabpanel" aria-labelledby="header-tab">
+										<div style="padding: 0.5rem 0rem 0.5rem; margin-top:5px">
+											<label style="margin-left: 5px; margin-right: 5px; font-size: 11px; margin-bottom: 0rem;">
+												 The headers specified will be combined with browser headers and sent with the request.
+											</label>
+											<table class="table table-sm" style="margin-left: 5px; margin-right: 5px;">
+												<thead>
+												<tr>
+													<th scope="col" style="margin-bottom: 0px; padding-bottom: 2px;"><b>Name</b></th>
+													<th scope="col" style="margin-bottom: 0px; padding-bottom: 2px;"><b>Value</b></th>
+													<th style="width: 35px;"></th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr>
+													<td style="padding-top: 0rem; padding-bottom: 0rem;">Mark</td>
+													<td style="padding-top: 0rem; padding-bottom: 0rem;">Otto</td>
+													<td style="padding-top: 0rem; padding-bottom: 0rem;"><button type="button" class="btn btn-danger btn-sm" style="padding: 4px; font-size: .59rem;">Delete</button></td>
+												</tr>
+												<tr>
+													<td style="padding-top: 0rem; padding-bottom: 0rem;">Jacob</td>
+													<td style="padding-top: 0rem; padding-bottom: 0rem;">Thornton</td>
+													<td style="padding-top: 0rem; padding-bottom: 0rem;"><button type="button" class="btn btn-danger btn-sm" style="padding: 4px; font-size: .59rem;">Delete</button></td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
+										<div style="padding: 0.5rem 0rem 0.5rem; margin-top:5px">
+											<label style="margin-left: 5px; margin-right: 5px; font-size: 11px; margin-bottom: 0rem;">
+												Select one of the options below to include data with request.
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card-footer" style="padding-bottom: 5px; padding-top: 5px;">
+							<!--	<button type="button" class="btn-sm" style="background-color:#F8981D; color: white">Send API Request</button> -->
+								<button type="button" class="btn btn-sm" style="background-color: #c1781b;">
+									<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>	Send API Request
+								</button>
+								<div class="dropdown" style="float: right">
+									<button class="btn-sm dropdown-toggle" style="vertical-align: text-top;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Development
+									</button>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item" href="#">Parameters</a>
+										<a class="dropdown-item" href="#">Body</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="card text-body mb-3" style="max-width: 34rem; background-color: #92a7bf; margin-top: 20px; width: 100%">
+							<div class="card-header" style="color: white; padding-bottom: 5px; padding-top: 5px;">
+								<label style="margin-top: 9px;">Response</label>
+							</div>
+							<div class="card-body" style="padding: 10px; background-color: white; height: 250px">
+								<ul class="nav nav-pills" style="font-size: 10px; font-weight: bold;">
+									<li class="nav-item">
+										<a class="nav-link active" id="header-tab" data-toggle="tab" href="#header" role="tab" aria-controls="header">Header</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" id="data-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data">Data</a>
+									</li>
+								</ul>
+								<!-- Tab panes -->
+								<div class="tab-content" style="padding: .5rem .0rem .5rem; height: 220px;">
+									<div role="tabpanel" class="tab-pane fade in active show" id="header" role="tabpanel" aria-labelledby="header-tab">
+										<div style="padding: 0.5rem 0rem 0.5rem; margin-top:5px">
+											
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
+										<div class="row">
+											<label style="padding-right: 10px; margin-left: 15px; margin-top: 10px"><strong>Media type</strong></label>
+											<label style="margin-top: 10px">application/json</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="card text-body mb-3" style="max-width: 34rem; background-color: #EEEEEF; margin-top: 20px;">
+							<div class="card-header" style="color: #4D7A97">
+								<label style="margin-top: 5px;">Request Sample</label>
+								<div class="dropdown" style="float:right;">
+									<button class="btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										cURL
+									</button>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item" href="#">cURL</a>
+										<a class="dropdown-item" href="#">Java</a>
+									</div>
+								</div>
+							<!--	<button type="button" class="btn btn-link" style="float: right"><i class="fa fa-clipboard" aria-hidden="true"></i></button> -->
+							</div>
+							<div class="card-body" style="color: white">
+								<code class="card-text" style="color: #4D7A97">
+									curl --request GET \
+									--url https://api.protect.earth/v1/orders/uuid \
+									--header 'Content-Type: application/json'
+								</code>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+	   </div>
 		
 	</div>
 
-	<div id="response_info" class="px-2" style="margin-top: 90px; display: none;">
-	
-		<div class="container-fluid mt-0 pt-1">
-						
-				<!-- Card Light -->
-				<div class="card border border-0">
-				
-				  <!-- Card content -->
-				  <div class="card-body" style="padding-right: 0px; padding-left: 0px">
-				
-				    <!-- Title -->
-				    <h2 class="card-title">
-				    	Response Info (API Customer Services)
-				   		<button class="btn btn-danger btn-sm waves-effect waves-light float-right"  onclick="change('response_info', 'service_detail');"><i class="fas fa-times mr-1"></i> Close</button>
-					</h2>
-				   			
-				   	<hr>		
-				   				    
-					<div class="row">					    
-					    <div class="col-md-12">
-						   			
-					    </div>				    
-				    </div>
-					  					  		  
-				  </div>
-				
-				</div>
-				<!-- Card Light -->
-				   
-		    </div>
-		
-	</div>
-	
-	
   <!-- JQuery -->
   <script type="text/javascript">
 	${jquery_3_3_1_min_js}
@@ -1232,7 +1213,42 @@
 	    	else
 	    		$('#'+id).hide();
 	    }
-	
+
+
+	    var codeEditor = document.getElementById('codeEditor');
+var lineCounter = document.getElementById('lineCounter');
+
+codeEditor.addEventListener('scroll', () => {
+    lineCounter.scrollTop = codeEditor.scrollTop;
+    lineCounter.scrollLeft = codeEditor.scrollLeft;
+});
+
+codeEditor.addEventListener('keydown', (e) => {
+       let { keyCode } = e;
+       let { value, selectionStart, selectionEnd } = codeEditor;
+if (keyCode === 9) {  // TAB = 9
+         e.preventDefault();
+         codeEditor.value = value.slice(0, selectionStart) + '\t' + value.slice(selectionEnd);
+         codeEditor.setSelectionRange(selectionStart+2, selectionStart+2)
+       }
+ });
+
+ var lineCountCache = 0;
+function line_counter() {
+      var lineCount = codeEditor.value.split('\n').length;
+      var outarr = new Array();
+      if (lineCountCache != lineCount) {
+         for (var x = 0; x < lineCount; x++) {
+            outarr[x] = (x + 1) + '.';
+         }
+         lineCounter.value = outarr.join('\n');
+      }
+      lineCountCache = lineCount;
+}
+codeEditor.addEventListener('input', () => {
+    line_counter();
+});
+
   </script>
 	
 	

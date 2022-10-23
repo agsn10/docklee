@@ -52,17 +52,7 @@ public class DoLoginAction implements Action {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-			/*	}else {
-					message = MessageDto.Builder.create().setStatus(MessageDto.Status.ERROR.name()).setContent("Invalid data!").build();
-					response.getWriter().write(new Gson().toJson(message));
-				}		
-			}else {
-				message = MessageDto.Builder.create().setStatus(MessageDto.Status.ERROR.name()).setContent("Invalid data!").build();
-				response.getWriter().write(new Gson().toJson(message));
-			}
-		}catch (Exception e) {
-			throw new ActionException(e);
-		}		*/
+
 	}
 
 }

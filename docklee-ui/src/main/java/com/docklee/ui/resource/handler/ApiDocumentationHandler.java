@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
+import com.docklee.model.pojo.APIDefinition;
 import com.docklee.ui.resource.CssResource;
 import com.docklee.ui.resource.JsResource;
 import com.docklee.ui.resource.Resources;
@@ -33,42 +34,34 @@ public class ApiDocumentationHandler implements ResourceHandler{
 	
 	@Override
 	public String handle(String resource, Map<String, String> infoMap) throws HandlerException {
-		HashMap<String, String> targets = new HashMap<>();
+
 		try {
-			
-			//ContextManager  contextManager = ContextManager.getInstance().loadContext(this.servletContext);
-			
-//			targets.put(TargetResource.Console.PROTOCOL, contextManager.getContext(ContextInfo.Ctx.SERVER_INFO).get(ContextInfo.ServerInfo.PROTOCOL).toString());
-//			targets.put(TargetResource.Console.SCHEME, contextManager.getContext(ContextInfo.Ctx.SERVER_INFO).get(ContextInfo.ServerInfo.SHEME).toString());
-//			targets.put(TargetResource.Console.SERVER_NAME, InetAddressUtil.getComputerName());
-//			targets.put(TargetResource.Console.SERVER_PORT, contextManager.getContext(ContextInfo.Ctx.SERVER_INFO).get(ContextInfo.ServerInfo.SERVER_PORT).toString());
-//			targets.put(TargetResource.Console.CONTEXT_PATH, contextManager.getContext(ContextInfo.Ctx.SERVER_INFO).get(ContextInfo.ServerInfo.CONTEXT_PATH).toString());
-//			targets.put(TargetResource.Console.SERVLET_PATH, contextManager.getContext(ContextInfo.Ctx.SERVER_INFO).get(ContextInfo.ServerInfo.SERVLET_PATH).toString());
-//			
-//			targets.put(TargetResource.Console.LIST_PRODUCTS, Components.Products.createList());
-//			targets.put(TargetResource.Console.LIST_REST_SERVICES, Components.RestServices.createList(contextManager));
-//			targets.put(TargetResource.Console.LIST_SOAP_SERVICES, Components.SoapServices.createList(contextManager));
-//			targets.put(TargetResource.Console.DEV_TOOLS_SERVICES_SOAP, Components.SoapServices.createListSoapServicesDevTools(this.servletContext));
-//			targets.put(TargetResource.Console.DEV_TOOLS_SERVICES_REST, Components.RestServices.createListRestServicesDevTools(this.servletContext));
-//			
-//			targets.put(TargetResource.Console.FILE_SAVER_JS, Resources.getInstance().getResource(JSResource.FILE_SAVER));
-			targets.put(TargetResource.ApiDocumentation.JQUERY_3_3_1_MIN_JS, Resources.getInstance().getResource(JsResource.JQUERY_3_3_1_MIN));
-			targets.put(TargetResource.ApiDocumentation.POPPER_MIN_JS, Resources.getInstance().getResource(JsResource.POPPER_MIN));
-			targets.put(TargetResource.ApiDocumentation.BOOTSTRAP_MIN_JS, Resources.getInstance().getResource(JsResource.BOOTSTRAP_MIN));
-			targets.put(TargetResource.ApiDocumentation.MDB_MIN_JS, Resources.getInstance().getResource(JsResource.MDB_MIN));
-//			targets.put(TargetResource.Console.SPLIT_1_3_5_MIN_MIN_JS, Resources.getInstance().getResource(JSResource.SPLIT_MIN));
-//			targets.put(TargetResource.Console.CHART_BUNDLE_2_7_2_JS, Resources.getInstance().getResource(JSResource.CHARTJS_BUNDLE));
-//			targets.put(TargetResource.Console.CHART_PLUGIN_ANNOTATION_0_5_7_MIN_JS, Resources.getInstance().getResource(JSResource.CHARTJS_PLUGIN_ANNOTATION));
-//			targets.put(TargetResource.Console.D3_4_13_0_MIN_JS, Resources.getInstance().getResource(JSResource.D3));
-//			targets.put(TargetResource.Console.CONSOLE_JS, Resources.getInstance().getResource(JSResource.CONSOLE));
-//			targets.put(TargetResource.Console.CONSOLE_CHART_JS, Resources.getInstance().getResource(JSResource.CONSOLE_CHART));
-//			targets.put(TargetResource.Console.TEMPETURE_JS, Resources.getInstance().getResource(JSResource.TEMPERATURE));
-//			targets.put(TargetResource.Console.CONSOLE_MAP_JS, Resources.getInstance().getResource(JSResource.CONSOLE_MAP));
-//			
-//			targets.put(TargetResource.Console.CONSOLE_CSS, Resources.getInstance().getResource(CSSResource.CONSOLE));
-			targets.put(TargetResource.ApiDocumentation.BOOTSTRAP_MIN_CSS, Resources.getInstance().getResource(CssResource.BOOTSTRAP_MIN));
-			targets.put(TargetResource.ApiDocumentation.MDB_MIN_CSS, Resources.getInstance().getResource(CssResource.MDB_MIN));
-			
+
+			HashMap<String, HashMap<String, Object>> context = (HashMap<String, HashMap<String, Object>> ) this.servletContext.getAttribute(ConstantResources.DOCKLEE_CONTEXT);
+			APIDefinition apiDefinition = (APIDefinition) context.get(ConstantResources.CTX_GLOBAL_DATA).get(ConstantResources.API_DEFINITION);
+			HashMap<String, String> targets = new HashMap<String, String> (){{
+
+				put(TargetResource.ApiDocumentation.JQUERY_3_3_1_MIN_JS, Resources.getInstance().getResource(JsResource.JQUERY_3_3_1_MIN));
+				put(TargetResource.ApiDocumentation.POPPER_MIN_JS, Resources.getInstance().getResource(JsResource.POPPER_MIN));
+				put(TargetResource.ApiDocumentation.BOOTSTRAP_MIN_JS, Resources.getInstance().getResource(JsResource.BOOTSTRAP_MIN));
+				put(TargetResource.ApiDocumentation.MDB_MIN_JS, Resources.getInstance().getResource(JsResource.MDB_MIN));
+				put(TargetResource.ApiDocumentation.BOOTSTRAP_MIN_CSS, Resources.getInstance().getResource(CssResource.BOOTSTRAP_MIN));
+				put(TargetResource.ApiDocumentation.MDB_MIN_CSS, Resources.getInstance().getResource(CssResource.MDB_MIN));
+
+				put(TargetResource.ApiDocumentation.INFO_TITLE, apiDefinition.getInfo().getTitle());
+				put(TargetResource.ApiDocumentation.INFO_DESCRIPTION, apiDefinition.getInfo().getDescription());
+				put(TargetResource.ApiDocumentation.INFO_VERSION, apiDefinition.getInfo().getVersion());
+
+				put(TargetResource.ApiDocumentation.INFO_CONTACT_EMAIL, apiDefinition.getInfo().getContact().getEmail());
+				put(TargetResource.ApiDocumentation.INFO_CONTACT_NAME, apiDefinition.getInfo().getContact().getName());
+				put(TargetResource.ApiDocumentation.INFO_CONTACT_URL, apiDefinition.getInfo().getContact().getUrl());
+
+				put(TargetResource.ApiDocumentation.INFO_LICENSE_NAME, apiDefinition.getInfo().getLicense().getName());
+				put(TargetResource.ApiDocumentation.INFO_LICENSE_URL, apiDefinition.getInfo().getLicense().getUrl());
+				put(TargetResource.ApiDocumentation.INFO_LICENSE_TERMS, apiDefinition.getInfo().getContact().getUrl());
+
+			}};
+
 			for(Map.Entry<String, String> res : targets.entrySet()) 
 				resource = resource.replace(res.getKey(), res.getValue());	
 			
@@ -77,5 +70,4 @@ public class ApiDocumentationHandler implements ResourceHandler{
 		}
 		return resource;
 	}
-
 }
