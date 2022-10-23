@@ -4,6 +4,7 @@ import com.docklee.model.pojo.APIDefinition;
 
 public abstract class Component {
 
+    private StringBuilder component = new StringBuilder();
     private APIDefinition apiDefinition;
 
     public Component(final APIDefinition apiDefinition) {
@@ -14,5 +15,9 @@ public abstract class Component {
 
     protected APIDefinition getApiDefinition() {
         return apiDefinition;
+    }
+
+    public StringBuilder getComponent() {
+        return component;
     }
 }
