@@ -30,6 +30,7 @@ public class SecurityRequirementComponent extends Component{
             getComponent().append("                 <tr>");
             getComponent().append("                     <td scope='row' style='vertical-align: middle; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important;'>"+i+++"</td>");
             getComponent().append("                     <td style='vertical-align: middle; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important;'>"+requirement.getName()+"</td>");
+
             getComponent().append("                     <td style='vertical-align: middle; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important;'>"+scopesGenerate(requirement.getScopes())+"</td>");
             getComponent().append("                 </tr>");
         }
