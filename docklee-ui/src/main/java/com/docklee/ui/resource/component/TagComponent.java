@@ -2,7 +2,6 @@ package com.docklee.ui.resource.component;
 
 import com.docklee.model.pojo.APIDefinition;
 import com.docklee.model.pojo.extensions.Tag;
-import com.docklee.model.pojo.operations.Server;
 
 public class TagComponent extends Component{
 

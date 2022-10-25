@@ -58,16 +58,5 @@ public final class TargetResource {
 		public static final String API_EXTERNAL_DOCUMENTATION = "${api.external.documentation}";
 		public static final String API_EXTENSION = "${api.extension}";
 		public static final String API_TAG = "${api.tag}";
-		/*
-		public static final String INFO_TITLE = "${info.title}";
-		public static final String INFO_DESCRIPTION = "${info.description}";
-		public static final String INFO_VERSION = "${info.version}";
-		public static final String INFO_CONTACT_EMAIL = "${info.contact.email}";
-		public static final String INFO_CONTACT_NAME = "${info.contact.name}";
-		public static final String INFO_CONTACT_URL = "${info.contact.url}";
-		public static final String INFO_LICENSE_NAME = "${info.license.name}";
-		public static final String INFO_LICENSE_URL = "${info.license.url}";
-		public static final String INFO_LICENSE_TERMS = "${info.license.terms}";
-		*/
 	}
 }

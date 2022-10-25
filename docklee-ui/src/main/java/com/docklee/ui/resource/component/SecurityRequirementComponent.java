@@ -1,7 +1,5 @@
 package com.docklee.ui.resource.component;
 
-import java.security.Security;
-
 import com.docklee.model.pojo.APIDefinition;
 import com.docklee.model.pojo.security.SecurityRequirement;
 
@@ -32,7 +30,7 @@ public class SecurityRequirementComponent extends Component{
             getComponent().append("                 <tr>");
             getComponent().append("                     <td scope='row' style='vertical-align: middle; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important;'>"+i+++"</td>");
             getComponent().append("                     <td style='vertical-align: middle; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important;'>"+requirement.getName()+"</td>");
-            getComponent().append("                     <td style='vertical-align: middle; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important;'>"+requirement.getScopes()+"</td>");
+            getComponent().append("                     <td style='vertical-align: middle; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important;'>"+scopesGenerate(requirement.getScopes())+"</td>");
             getComponent().append("                 </tr>");
         }
             getComponent().append("             </tbody>");
@@ -40,5 +38,12 @@ public class SecurityRequirementComponent extends Component{
             getComponent().append("     </div>");
             getComponent().append("</div>");
         return getComponent().toString();
+    }
+
+    private String scopesGenerate(String[] scopes){
+        String badges = "";
+        for(String badge : scopes)
+            badges += "<span style='margin-left: 5px;' class='badge badge-secondary'>"+badge+"</span>";
+        return badges;
     }
 }

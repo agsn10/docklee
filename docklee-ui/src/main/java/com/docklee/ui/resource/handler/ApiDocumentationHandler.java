@@ -42,11 +42,10 @@ public class ApiDocumentationHandler implements ResourceHandler{
 	public String handle(String resource, Map<String, String> infoMap) throws HandlerException {
 
 		try {
-
+			
 			HashMap<String, HashMap<String, Object>> context = (HashMap<String, HashMap<String, Object>> ) this.servletContext.getAttribute(ConstantsResources.DOCKLEE_CONTEXT);
 			APIDefinition apiDefinition = (APIDefinition) context.get(ConstantsResources.CTX_GLOBAL_DATA).get(ConstantsResources.API_DEFINITION);
 			HashMap<String, String> targets = new HashMap<String, String> (){{
-
 				put(TargetResource.ApiDocumentation.JQUERY_3_3_1_MIN_JS, Resources.getInstance().getResource(JsResource.JQUERY_3_3_1_MIN));
 				put(TargetResource.ApiDocumentation.POPPER_MIN_JS, Resources.getInstance().getResource(JsResource.POPPER_MIN));
 				put(TargetResource.ApiDocumentation.BOOTSTRAP_MIN_JS, Resources.getInstance().getResource(JsResource.BOOTSTRAP_MIN));
@@ -60,15 +59,14 @@ public class ApiDocumentationHandler implements ResourceHandler{
 				put(TargetResource.ApiDocumentation.API_EXTERNAL_DOCUMENTATION, new ExternalDocumentationComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_EXTENSION, new ExtensionComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_TAG, new TagComponent(apiDefinition).create());
-
 			}};
+			for(Map.Entry<String, String> res : targets.entrySet())
+				resource = resource.replace(res.getKey(), res.getValue());
 
-			for(Map.Entry<String, String> res : targets.entrySet()) 
-				resource = resource.replace(res.getKey(), res.getValue());	
-			
 		} catch (ResourceException e) {
 			throw new HandlerException(e);
 		}
+
 		return resource;
 	}
 

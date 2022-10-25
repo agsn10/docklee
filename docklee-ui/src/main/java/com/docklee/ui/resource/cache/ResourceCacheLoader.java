@@ -10,7 +10,6 @@ public final class ResourceCacheLoader extends CacheLoader<String, String>{
 
 	@Override
 	public String load(String css) throws Exception {
-		System.out.println("Loading resource: "+css);
 		String resource = "";
 		try {
 			resource = ResourceResolver.getResource(css);
