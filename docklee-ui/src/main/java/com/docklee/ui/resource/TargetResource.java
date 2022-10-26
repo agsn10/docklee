@@ -58,5 +58,6 @@ public final class TargetResource {
 		public static final String API_EXTERNAL_DOCUMENTATION = "${api.external.documentation}";
 		public static final String API_EXTENSION = "${api.extension}";
 		public static final String API_TAG = "${api.tag}";
+		public static final String API_RESOURCES = "${api.resources}";
 	}
 }

@@ -1,6 +1,8 @@
 package com.docklee.ui.resource.handler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -13,11 +15,14 @@ import com.docklee.ui.resource.TargetResource;
 import com.docklee.ui.resource.component.ExtensionComponent;
 import com.docklee.ui.resource.component.ExternalDocumentationComponent;
 import com.docklee.ui.resource.component.InfoComponent;
+import com.docklee.ui.resource.component.ResourceComponent;
+import com.docklee.ui.resource.component.ResourceRowsComponent;
 import com.docklee.ui.resource.component.SecurityRequirementComponent;
 import com.docklee.ui.resource.component.ServersComponent;
 import com.docklee.ui.resource.component.TagComponent;
 import com.docklee.ui.resource.exception.HandlerException;
 import com.docklee.ui.resource.exception.ResourceException;
+import com.google.common.collect.Lists;
 
 /**
  * <p><b>Docklee</b> - Api Documentation</p>
@@ -59,6 +64,20 @@ public class ApiDocumentationHandler implements ResourceHandler{
 				put(TargetResource.ApiDocumentation.API_EXTERNAL_DOCUMENTATION, new ExternalDocumentationComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_EXTENSION, new ExtensionComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_TAG, new TagComponent(apiDefinition).create());
+
+				List<ResourceComponent> resourceComponentList = new ArrayList<>(0);
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				resourceComponentList.add(new ResourceComponent(null));
+				List<List<ResourceComponent>> subSets = Lists.partition(resourceComponentList, 4);
+
+				put(TargetResource.ApiDocumentation.API_RESOURCES, new ResourceRowsComponent(apiDefinition, subSets).create());
 			}};
 			for(Map.Entry<String, String> res : targets.entrySet())
 				resource = resource.replace(res.getKey(), res.getValue());
