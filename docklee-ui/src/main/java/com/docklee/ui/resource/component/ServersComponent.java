@@ -60,7 +60,7 @@ public class ServersComponent extends Component{
     private String createExtensionModal(String id, Extension[] extensions){
         StringBuilder modal = new StringBuilder();
         modal.append("<div class='modal fade' id='"+id+"' data-backdrop='static' data-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>");
-        modal.append("  <div class='modal-dialog'>");
+        modal.append("  <div class='modal-dialog modal-lg'>");
         modal.append("      <div class='modal-content'>");
         modal.append("          <div class='modal-header'>");
         modal.append("              <h5 class='modal-title' id='staticBackdropLabel'>Extensions</h5>");
@@ -106,7 +106,7 @@ public class ServersComponent extends Component{
     private String createServerVariableModal(String id, ServerVariable[] serverVariables){
         StringBuilder modal = new StringBuilder();
         modal.append("<div class='modal fade' id='"+id+"' data-backdrop='static' data-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>");
-        modal.append("  <div class='modal-dialog'>");
+        modal.append("  <div class='modal-dialog modal-xl'>");
         modal.append("      <div class='modal-content'>");
         modal.append("          <div class='modal-header'>");
         modal.append("              <h5 class='modal-title' id='staticBackdropLabel'>Server Variables</h5>");
@@ -115,6 +115,69 @@ public class ServersComponent extends Component{
         modal.append("              </button>");
         modal.append("          </div>");
         modal.append("          <div class='modal-body'>");
+
+        modal.append("              <div class='col-md-12' style='margin-top: 2px; padding-left: 0px; padding-right: 0px; margin-bottom: 5px;'>");
+        modal.append("                  <table class='table table-sm'>");
+        modal.append("                      <thead style='background-color: #09c; color: white;'>");
+        modal.append("                          <tr>");
+        modal.append("                              <th scope='col'><b>#</b></th>");
+        modal.append("                              <th scope='col'><b>Name</b></th>");
+        modal.append("                              <th scope='col'><b>Description</b></th>");
+        modal.append("                              <th scope='col'><b>Allowable Values</b></th>");
+        modal.append("                              <th scope='col'><b>Default Value</b></th>");
+        modal.append("                              <th scope='col' style='text-align: center;'><b>Extensions</b></th>");
+        modal.append("                          </tr>");
+        modal.append("                      </thead>");
+        modal.append("                      <tbody>");
+        int j=0;
+        for (ServerVariable variable : serverVariables) {
+            String variableId = "dckl"+variable.hashCode()+j;
+            modal.append("                      <tr>");
+            modal.append("                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + (j+1) + "</td>");
+            modal.append("                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + variable.getName() + "</td>");
+            modal.append("                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + variable.getDescription() + "</td>");
+            modal.append("                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + createAllowableValues(variable.getAllowableValues()) + "</td>");
+            modal.append("                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + variable.getDefaultValue() + "</td>");
+            modal.append("                          <td style='text-align: center; width: 210px; padding-top: 0rem !important; padding-bottom: 0rem !important;'>");
+            modal.append("                              <button type='button' class='btn btn-sm btn-info waves-effect waves-light' onclick=\"show('"+variableId+"');\"><i class='fa fa-info-circle' aria-hidden='true'></i> Detail</button>");
+            modal.append("                          </td>");
+            modal.append("                      </tr>");
+
+            modal.append("                      <tr id='"+variableId+"' style='display: none'>");
+            modal.append("                          <td colspan='6'");
+            modal.append("                              <div class='card-body'>");
+            modal.append("                                  <table class='table table-sm table-striped'>");
+            modal.append("                                      <thead style='background-color: #09c; color: white;'>");
+            modal.append("                                          <tr>");
+            modal.append("                                                  <th scope='col'><b>#</b></th>");
+            modal.append("                                                  <th scope='col'><b>Name</b></th>");
+            modal.append("                                                  <th scope='col'><b>Ext. Prop. Name</b></th>");
+            modal.append("                                                  <th scope='col'><b>Ext. Prop. Value</b></th>");
+            modal.append("                                          </tr>");
+            modal.append("                                      </thead>");
+            modal.append("                                      <tbody>");
+            int i=0;
+            for (Extension extension : variable.getExtensions()) {
+                modal.append("                                      <tr>");
+                modal.append("                                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + (i+1) + "</td>");
+                modal.append("                                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + extension.getName() + "</td>");
+                modal.append("                                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + extension.getProperties()[j].getName() + "</td>");
+                modal.append("                                          <td style='vertical-align: middle; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;'>" + extension.getProperties()[j].getValue() + "</td>");
+                modal.append("                                      </tr>");
+                i++;
+            }
+            modal.append("                                      </tbody>");
+            modal.append("                                  </table>");
+            modal.append("                              </div>");
+            modal.append("                          </td>");
+            modal.append("                      </tr>");
+
+                j++;
+        }
+        modal.append("                      </tbody>");
+        modal.append("                  </table>");
+        modal.append("              </div>");
+
         modal.append("          </div>");
         modal.append("          <div class='modal-footer'>");
         modal.append("              <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>");
@@ -123,5 +186,12 @@ public class ServersComponent extends Component{
         modal.append("  </div>");
         modal.append("</div>");
         return modal.toString();
+    }
+
+    private String createAllowableValues(String[] values){
+        String badges = "";
+        for(String badge : values)
+            badges += "<span style='margin-left: 5px;' class='badge badge-secondary'>"+badge+"</span>";
+        return badges;
     }
 }
