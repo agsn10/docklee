@@ -37,17 +37,14 @@ public final class ResourceResolver {
 	}
 
 	public void checkResources(DockleeManager dockleeManager, HttpServletRequest req){
-        //TODO Implementar mensagem na exception
 		try {
-			ContextManager contextManager = ContextManager.getInstance().loadContext(req.getServletContext());
-			if (Objects.isNull(dockleeManager.getPackageToScan()) && Objects.isNull(dockleeManager.getApiDefinition()))
-				throw new IllegalArgumentException("");
-
 			if(!isChecked) {
+				ContextManager contextManager = ContextManager.getInstance().loadContext(req.getServletContext());
+				if (Objects.isNull(dockleeManager.getPackageToScan()) && Objects.isNull(dockleeManager.getApiDefinition()))
+					throw new IllegalArgumentException("The parameters PackageToScan & ApiDefinition from DockleeConfiguration is required!");
 				Set<Class<?>> set = loadResources(dockleeManager.getPackageToScan());
 				if (!set.isEmpty())
 					set.stream().forEach(clazz -> contextManager.getContext(ContextInfo.Ctx.RESOURCE_INFO).put(clazz.getName(), clazz));
-
 				contextManager.getContext(ContextInfo.Ctx.GLOBAL_DATA).put(ContextInfo.GlobalData.API_DEFINITION, dockleeManager.getApiDefinition());
 				contextManager.saveContext(req.getServletContext(), contextManager);
 				isChecked = true;
@@ -60,11 +57,10 @@ public final class ResourceResolver {
 
 	private Set<Class<?>> loadResources(final String packageName) throws IOException {
 		return ClassPath.from(ClassLoader.getSystemClassLoader())
-			.getAllClasses()
-			.stream()
-			.filter(clazz -> clazz.getPackageName()
-				.equalsIgnoreCase(packageName))
-			.map(clazz -> clazz.load())
-			.collect(Collectors.toSet());
+						.getAllClasses()
+						.stream()
+						.filter(clazz -> clazz.getPackageName().equalsIgnoreCase(packageName))
+						.map(clazz -> clazz.load())
+						.collect(Collectors.toSet());
 	}
 }

@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletContext;
 
+import com.docklee.annotation.extensions.Tag;
 import com.docklee.model.pojo.APIDefinition;
 import com.docklee.ui.resource.CssResource;
 import com.docklee.ui.resource.JsResource;
+import com.docklee.ui.resource.ResourceInspector;
 import com.docklee.ui.resource.Resources;
 import com.docklee.ui.resource.TargetResource;
 import com.docklee.ui.resource.component.ExtensionComponent;
@@ -65,19 +68,19 @@ public class ApiDocumentationHandler implements ResourceHandler{
 				put(TargetResource.ApiDocumentation.API_EXTENSION, new ExtensionComponent(apiDefinition).create());
 				put(TargetResource.ApiDocumentation.API_TAG, new TagComponent(apiDefinition).create());
 
+				HashMap<String, Object> resources = context.get(ConstantsResources.CTX_RESOURCE_INFO);
+				List<Class<?>> resourcesList = resources.values().stream().map(obj -> ((Class<?>) obj)).collect(Collectors.toList());
+				List<Tag> tagList = ResourceInspector.create()
+					                                 .defineTarget(resourcesList)
+					                                 .get()
+					                                 .target(Tag.class)
+					                                 .getTagFromResource()
+					                                 .stream()
+					                                 .map(obj -> ((Tag) obj))
+					                                 .collect(Collectors.toList());
 				List<ResourceComponent> resourceComponentList = new ArrayList<>(0);
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				resourceComponentList.add(new ResourceComponent(null));
-				List<List<ResourceComponent>> subSets = Lists.partition(resourceComponentList, 4);
-
-				put(TargetResource.ApiDocumentation.API_RESOURCES, new ResourceRowsComponent(apiDefinition, subSets).create());
+				tagList.forEach(tag -> resourceComponentList.add(new ResourceComponent(null, tag)));
+				put(TargetResource.ApiDocumentation.API_RESOURCES, new ResourceRowsComponent( null, Lists.partition(resourceComponentList, 4) ).create());
 			}};
 			for(Map.Entry<String, String> res : targets.entrySet())
 				resource = resource.replace(res.getKey(), res.getValue());
@@ -88,5 +91,4 @@ public class ApiDocumentationHandler implements ResourceHandler{
 
 		return resource;
 	}
-
 }

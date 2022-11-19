@@ -19,6 +19,7 @@ public interface ResourceHandler {
 	interface ConstantsResources{
 		public final static String DOCKLEE_CONTEXT = "docklee_context";
 		public final static String CTX_GLOBAL_DATA = "ctx.global.data";
+		public static final String CTX_RESOURCE_INFO = "ctx.resource.info";
 		public final static String API_DEFINITION = "api.definition";
 	}
 

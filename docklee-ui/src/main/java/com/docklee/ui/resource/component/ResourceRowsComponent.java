@@ -19,7 +19,6 @@ public class ResourceRowsComponent extends Component{
      */
     @Override
     public String create() {
-
         for(List<ResourceComponent> listComponent : resourceComponentList) {
                 getComponent().append("<section class='p-3'>");
                 getComponent().append("     <!-- Grid row -->");

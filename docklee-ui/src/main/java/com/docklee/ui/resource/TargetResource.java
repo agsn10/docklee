@@ -59,5 +59,6 @@ public final class TargetResource {
 		public static final String API_EXTENSION = "${api.extension}";
 		public static final String API_TAG = "${api.tag}";
 		public static final String API_RESOURCES = "${api.resources}";
+		public static final String API_RESOURCE_OPERATIONS = "${api.resource.operation}";
 	}
 }

@@ -54,8 +54,6 @@ public class ContextParameterInitializer implements ContextInitializer.Initializ
 					String host = InetAddress.getLocalHostLANAddress().toString().replace("/", "");
 					String contextPath = servletContext.getContextPath();
 					String resourcePath = Iterables.get(servletContext.getServletRegistrations().get(optional.get()).getMappings(),0).replace("/*", "");
-					//String port = contextManager.getContext(ContextInfo.Ctx.SERVER_INFO).get(ContextInfo.ServerInfo.SERVER_PORT).toString();
-
 					ServerProperties serverProperties;
 					String baseUrl = String.format(scheme.concat("%s:%s%s%s"), host, "{port}", contextPath, resourcePath);
 					contextManager.getContext(ContextInfo.Ctx.GLOBAL_DATA).put(ContextInfo.GlobalData.BASE_URL, baseUrl);
